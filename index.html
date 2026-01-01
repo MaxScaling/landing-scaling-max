@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaling MAX | Découvre ce que tu obtiens</title>
+    
+    <!-- META PIXEL - REMPLACER PAR TON ID -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'VOTRE_PIXEL_ID_ICI');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=VOTRE_PIXEL_ID_ICI&ev=PageView&noscript=1"/></noscript>
+    <!-- FIN META PIXEL -->
+
+    <!-- GOOGLE TAG MANAGER - REMPLACER PAR TON ID -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- FIN GTM -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray: #555;
+            --gray-light: #e8e8e8;
+            --gray-bg: #f5f5f5;
+            --accent: #ff4d00;
+            --accent-dark: #e64500;
+            --success: #10b981;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            background: rgba(250,250,250,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .header-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, var(--white) 0%, var(--gray-bg) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 77, 0, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero-tag::before {
+            content: "🎬";
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .hero-bullets li {
+            padding: 8px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .hero-bullets li::before {
+            content: "👀";
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        /* Lead Capture Card */
+        .lead-form-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-light);
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            padding: 14px 16px;
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .lead-form button {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .lead-form button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 77, 0, 0.3);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 12px;
+        }
+
+        .form-note strong {
+            color: var(--black);
+        }
+
+        /* Anti-BS Badge in form card */
+        .anti-bs-badge {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .anti-bs-badge .anti-bs-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .anti-bs-badge p {
+            font-size: 0.8rem;
+            color: #991b1b;
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .lead-form-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .lead-form-card .subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        /* Video Locked Preview */
+        .video-locked {
+            margin-top: 24px;
+            background: var(--gray-bg);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            border: 2px dashed var(--gray-light);
+        }
+
+        .video-locked-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .video-locked p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .video-locked strong {
+            color: var(--black);
+        }
+
+        /* ===== VIDEO UNLOCKED STATE ===== */
+        .hero-unlocked {
+            display: none;
+        }
+
+        body.video-unlocked .hero-grid {
+            display: none;
+        }
+
+        body.video-unlocked .hero-unlocked {
+            display: block;
+        }
+
+        .unlocked-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .unlocked-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--success);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .unlocked-header h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .unlocked-header p {
+            color: var(--gray);
+        }
+
+        .video-container {
+            background: var(--black);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
+        .video-container .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Video placeholder */
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            gap: 16px;
+        }
+
+        .video-placeholder .play-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .video-placeholder .play-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .video-placeholder p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Box après vidéo */
+        .post-video-cta {
+            background: var(--white);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .post-video-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .post-video-cta > p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .post-video-cta .price-tag {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .post-video-cta .price-tag span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .post-video-cta .price-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .post-video-cta ul {
+            list-style: none;
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto 24px;
+        }
+
+        .post-video-cta li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .post-video-cta li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .post-video-cta .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 18px 48px;
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .post-video-cta .cta-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255, 77, 0, 0.3);
+        }
+
+        .post-video-cta .alt-link {
+            display: block;
+            margin-top: 16px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+
+        /* Social Proof Bar */
+        .social-proof-bar {
+            padding: 40px 0;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .social-proof-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .social-proof-item {
+            text-align: center;
+        }
+
+        .social-proof-item .number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+        }
+
+        .social-proof-item .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Media / As Seen On */
+        .as-seen-on {
+            padding: 60px 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .as-seen-on-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .as-seen-on-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .media-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--gray-bg);
+            padding: 16px 24px;
+            border-radius: 12px;
+        }
+
+        .media-item img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .media-item-text {
+            font-size: 0.9rem;
+        }
+
+        .media-item-text strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .media-item-text span {
+            color: var(--gray);
+        }
+
+        /* What's Inside Section */
+        .whats-inside {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .whats-inside-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .whats-inside-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        .inside-card {
+            background: var(--gray-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+        }
+
+        .inside-card-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .inside-card-header .icon {
+            font-size: 1.5rem;
+        }
+
+        .inside-card-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .inside-card-body {
+            padding: 24px;
+        }
+
+        .inside-card-body p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .inside-card-body ul {
+            list-style: none;
+        }
+
+        .inside-card-body li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .inside-card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .inside-card-body li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 100px 0;
+            background: var(--gray-bg);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .story-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .story-images img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .story-images img:first-child {
+            grid-column: 1 / -1;
+            aspect-ratio: 16/9;
+        }
+
+        .story-images img:not(:first-child) {
+            aspect-ratio: 1;
+        }
+
+        .story h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .story p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .story-highlight {
+            background: var(--white);
+            padding: 20px 24px;
+            margin-top: 24px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .story-highlight p {
+            color: var(--black);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            padding: 100px 0;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 800px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .case-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .case-card img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+        }
+
+        .case-card-content {
+            padding: 24px;
+        }
+
+        .case-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .case-card .type {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .case-card p {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        /* Anti-BS Section */
+        .anti-bs {
+            padding: 80px 0;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .anti-bs h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .comparison {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        .comparison-col {
+            background: rgba(255,255,255,0.05);
+            padding: 32px;
+            border-radius: 12px;
+        }
+
+        .comparison-col h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid;
+        }
+
+        .comparison-col.no h4 {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        .comparison-col.yes h4 {
+            border-color: #22c55e;
+            color: #22c55e;
+        }
+
+        .comparison-col ul {
+            list-style: none;
+        }
+
+        .comparison-col li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .comparison-col.no li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+        }
+
+        .comparison-col.yes li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: 700;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 0;
+            background: var(--gray-bg);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 800px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid var(--gray-light);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--gray);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(255, 77, 0, 0.15);
+        }
+
+        .pricing-card.featured::before {
+            content: "🔥 POPULAIRE";
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--white);
+            padding: 6px 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 50px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .pricing-card .price {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .pricing-card .price span {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.6;
+        }
+
+        .pricing-card .price-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 28px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .pricing-card li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            display: block;
+            text-align: center;
+            padding: 16px 24px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: var(--accent);
+        }
+
+        .pricing-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--gray-bg);
+            margin-bottom: 16px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 24px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--gray);
+            transition: transform 0.2s;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-item .answer {
+            padding: 0 24px 24px;
+            color: var(--gray);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            opacity: 0.7;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 20px 48px;
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .final-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 77, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        footer a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--black);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .hero-content > *:nth-child(1) { animation-delay: 0s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.3s; }
+
+        .lead-form-card {
+            animation: fadeInUp 0.6s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-unlocked > * {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- GTM (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Scaling MAX</a>
+                <a href="#pricing" class="header-cta">Rejoindre →</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <!-- STATE 1: Formulaire (avant soumission) -->
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-tag">Vidéo gratuite · 15 min</div>
+                    <p class="hero-tagline">Scale ton business en copiant ce qui a marché pour moi.</p>
+                    <h1>Découvre exactement <em>ce que tu obtiens</em> pour 79€/mois</h1>
+                    <p class="hero-subtitle">Je te fais le tour complet : le Notion avec toute ma méthode, le Discord privé, les templates, les outils. Tu vois tout avant de décider.</p>
+                    <ul class="hero-bullets">
+                        <li>Le Notion Scaling MAX en détail</li>
+                        <li>Le Discord et comment j'y réponds</li>
+                        <li>Les templates prêts à utiliser</li>
+                        <li>Pour qui c'est fait (et pas fait)</li>
+                    </ul>
+                </div>
+                <div class="lead-form-card">
+                    <div class="anti-bs-badge">
+                        <span class="anti-bs-icon">🚫</span>
+                        <p>Pas de "0 à 10K/mois en 30 jours". Pas de webinaire. Pas de 5 day challenge. Pas de business IA bullshit.</p>
+                    </div>
+                    <h3>Une méthode. La vraie.</h3>
+                    <p class="subtitle">Sans argent, sans réseau, sans compétences, sans idées — j'ai vendu ma startup plusieurs millions 7 ans plus tard. Voilà comment.</p>
+                    <form class="lead-form" id="leadForm">
+                        <div class="form-group">
+                            <label for="firstname">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="Ton prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="ton@email.com" required>
+                        </div>
+                        <button type="submit">Voir la méthode →</button>
+                    </form>
+                    <p class="form-note">🔒 <strong>0 spam</strong> · Tu débloques la vidéo direct</p>
+                    
+                    <div class="video-locked">
+                        <div class="video-locked-icon">🎬</div>
+                        <p><strong>15 min de screenshare</strong><br>Je te montre tout : le Notion, le Discord, les templates.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATE 2: Vidéo débloquée (après soumission) -->
+            <div class="hero-unlocked">
+                <div class="unlocked-header">
+                    <div class="unlocked-badge">✓ Accès débloqué</div>
+                    <h2>Voilà ce que tu obtiens pour 79€/mois</h2>
+                    <p>Regarde la vidéo, je te montre tout en screenshare.</p>
+                </div>
+
+                <div class="video-container">
+                    <!-- OPTION 1: Loom embed -->
+                    <!-- <div class="video-wrapper">
+                        <iframe src="https://www.loom.com/embed/VOTRE_VIDEO_ID" allowfullscreen></iframe>
+                    </div> -->
+
+                    <!-- OPTION 2: YouTube embed -->
+                    <!-- <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/VOTRE_VIDEO_ID" allowfullscreen></iframe>
+                    </div> -->
+
+                    <!-- PLACEHOLDER - À remplacer par ton embed -->
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <div class="play-icon">▶</div>
+                        <p>Remplace ce placeholder par ton embed Loom ou YouTube</p>
+                    </div>
+                </div>
+
+                <div class="post-video-cta">
+                    <h3>Ça te parle ?</h3>
+                    <p>Rejoins maintenant et accède à tout ce que tu viens de voir.</p>
+                    <div class="price-tag">79€ <span>/mois</span></div>
+                    <p class="price-note">Sans engagement · Annulable en 1 clic</p>
+                    <ul>
+                        <li>Accès immédiat au Notion complet</li>
+                        <li>Accès au Discord privé</li>
+                        <li>Tous les templates & outils</li>
+                        <li>Mises à jour incluses</li>
+                    </ul>
+                    <!-- STRIPE PAYMENT LINK -->
+                    <a href="https://buy.stripe.com/VOTRE_PAYMENT_LINK" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">Rejoindre maintenant →</a>
+                    <a href="#pricing" class="alt-link">Voir toutes les options</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof-bar">
+        <div class="container">
+            <div class="social-proof-content">
+                <div class="social-proof-item">
+                    <span class="number">0 → 15M€</span>
+                    <span class="label">CA en 3 ans</span>
+                </div>
+                <div class="social-proof-item">
+                    <span class="number">300+</span>
+                    <span class="label">Entrepreneurs accompagnés</span>
+                </div>
+                <div class="social-proof-item">
+                    <span class="number">Exit 7 chiffres</span>
+                    <span class="label">à 30 ans</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Vu dans les médias -->
+    <section class="as-seen-on">
+        <div class="container">
+            <div class="as-seen-on-content">
+                <span class="as-seen-on-label">Vu sur</span>
+                <div class="media-item">
+                    <img src="img-bsmart-interview.png" alt="B Smart TV Interview">
+                    <div class="media-item-text">
+                        <strong>B Smart TV</strong>
+                        <span>"Exit à plusieurs millions d'euros"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="whats-inside">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ce que tu débloques à l'intérieur</h2>
+                <p>Pas de surprise. Tu sais exactement ce que tu obtiens.</p>
+            </div>
+            <div class="whats-inside-grid">
+                <div class="inside-card">
+                    <div class="inside-card-header">
+                        <span class="icon">📚</span>
+                        <h3>Le Notion Scaling MAX</h3>
+                    </div>
+                    <div class="inside-card-body">
+                        <p>La méthode complète qui m'a permis de passer de 0 à 15M€.</p>
+                        <ul>
+                            <li>Case study Neoabita (150 leads à 20€)</li>
+                            <li>Framework audit + repositionnement</li>
+                            <li>Templates tunnels de vente</li>
+                            <li>Séquences email prêtes à l'emploi</li>
+                            <li>Config tracking (Stape, iClosed, GTM)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="inside-card">
+                    <div class="inside-card-header">
+                        <span class="icon">💬</span>
+                        <h3>Le Discord Privé</h3>
+                    </div>
+                    <div class="inside-card-body">
+                        <p>Accès direct à moi et à la communauté.</p>
+                        <ul>
+                            <li>Pose tes questions, j'y réponds</li>
+                            <li>Retours d'expérience des membres</li>
+                            <li>Partage de ressources</li>
+                            <li>Sessions Q&A régulières</li>
+                            <li>Networking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-images">
+                    <img src="img-team-warmango.png" alt="La team Warmango - 50 collaborateurs">
+                    <img src="img-conference-ecole.png" alt="Maxime en conférence">
+                    <img src="img-bayer-lifehub.png" alt="Workshop Bayer LifeHub Lyon">
+                </div>
+                <div class="story-content">
+                    <h2>Je suis Maxime Augiat.<br>Autodidacte, serial entrepreneur.</h2>
+                    <p>J'ai créé Warmango, une marketplace BtoB que j'ai scalée de 0 à 15M€ de CA avec 50 collaborateurs. Levée de 3M€, contrats CAC40, puis exit à plusieurs millions en 2022.</p>
+                    <p>Depuis, j'ai accompagné plus de 300 entrepreneurs à scaler leur business avec cette méthode. Je donne aussi des conférences en écoles de commerce et dans des accélérateurs comme le Bayer LifeHub.</p>
+                    <div class="story-highlight">
+                        <p>❌ Pas de "gourou" depuis Dubaï. Juste un entrepreneur qui l'a fait — et qui continue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quelques résultats</h2>
+                <p>Ils ont appliqué la méthode.</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-card">
+                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345597/file/719943c6da6975f22a3a5e3b76db1ae3.png" alt="BeeToGreen">
+                    <div class="case-card-content">
+                        <h3>BeeToGreen</h3>
+                        <p class="type">Marketplace BtoBtoC</p>
+                        <p>Structuration acquisition, tunnels, tracking.</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345598/file/799c89b7284aef445adc3183507c3c99.png" alt="Palm-AI">
+                    <div class="case-card-content">
+                        <h3>Palm-AI</h3>
+                        <p class="type">SaaS AI</p>
+                        <p>Repositionnement, pricing, acquisition.</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345599/file/8962d735891179963b5019857cca4570.png" alt="Armin">
+                    <div class="case-card-content">
+                        <h3>Armin</h3>
+                        <p class="type">Consumer BtoC</p>
+                        <p>Go-to-market, acquisition budget limité.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="anti-bs">
+        <div class="container-narrow">
+            <h2>Ce qui marche, c'est de bosser.</h2>
+            <div class="comparison">
+                <div class="comparison-col no">
+                    <h4>Pas ici</h4>
+                    <ul>
+                        <li>5 days challenges</li>
+                        <li>Webinaires de 3h</li>
+                        <li>Promesses de revenus passifs</li>
+                        <li>Screenshots Stripe douteux</li>
+                    </ul>
+                </div>
+                <div class="comparison-col yes">
+                    <h4>Ici</h4>
+                    <ul>
+                        <li>Méthode testée sur ma boîte</li>
+                        <li>Templates prêts à utiliser</li>
+                        <li>Du concret et de l'exécution</li>
+                        <li>Accès direct à moi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choisis ton niveau</h2>
+                <p>Commence par la communauté. Upgrade quand tu veux.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card featured">
+                    <h3>Communauté</h3>
+                    <div class="price">79€ <span>/mois</span></div>
+                    <p class="price-note">Sans engagement</p>
+                    <ul>
+                        <li>Notion Scaling MAX complet</li>
+                        <li>Discord privé</li>
+                        <li>Tous les templates</li>
+                        <li>Sessions Q&A</li>
+                        <li>Mises à jour</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/VOTRE_PAYMENT_LINK" class="pricing-cta" onclick="fbq('track', 'InitiateCheckout');">Rejoindre →</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Accompagnement 1:1</h3>
+                    <div class="price">Sur mesure</div>
+                    <p class="price-note">À partir de 1 500€/mois</p>
+                    <ul>
+                        <li>Tout Communauté inclus</li>
+                        <li>Audit complet</li>
+                        <li>Coaching hebdo</li>
+                        <li>Plan d'action custom</li>
+                        <li>Mon réseau</li>
+                    </ul>
+                    <a href="https://calendly.com/VOTRE_CALENDLY" class="pricing-cta" style="background: transparent; border: 2px solid var(--black); color: var(--black);">Réserver un appel →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Questions</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Ça marche dans mon secteur ?</summary>
+                    <div class="answer">
+                        <p>E-commerce, SaaS, agences, artisans, coachs, constructeurs... La méthode s'adapte. Si tu vends quelque chose, elle peut t'aider.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Je peux annuler quand je veux ?</summary>
+                    <div class="answer">
+                        <p>Oui. Sans engagement, annulable en 1 clic depuis Stripe.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Tu réponds vraiment sur le Discord ?</summary>
+                    <div class="answer">
+                        <p>Oui. Je suis actif, je réponds aux questions. C'est l'intérêt.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Différence avec l'accompagnement 1:1 ?</summary>
+                    <div class="answer">
+                        <p>La communauté = accès à la méthode et au groupe. L'accompagnement 1:1 = je travaille directement sur ton business avec toi.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Prêt ?</h2>
+            <p>Regarde la vidéo et décide par toi-même.</p>
+            <a href="#" class="final-cta-btn" id="scrollToTop">Voir la vidéo →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Maxime Augiat</p>
+                <div class="footer-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">CGV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission - Unlock video
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstname = document.getElementById('firstname').value;
+            const email = document.getElementById('email').value;
+            
+            // Track lead event - Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Video Tour Scaling MAX',
+                    content_category: 'Lead Magnet'
+                });
+            }
+            
+            // Track in GTM dataLayer
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'lead_captured',
+                    'email': email,
+                    'firstname': firstname
+                });
+            }
+            
+            // TODO: Envoyer à Brevo via webhook
+            // fetch('VOTRE_WEBHOOK_BREVO', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email, firstname })
+            // });
+            
+            // Unlock video
+            document.body.classList.add('video-unlocked');
+            
+            // Scroll to top
+            document.querySelector('.hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Store in localStorage
+            localStorage.setItem('videoUnlocked', 'true');
+            localStorage.setItem('userFirstname', firstname);
+        });
+        
+        // Check if already unlocked
+        if (localStorage.getItem('videoUnlocked') === 'true') {
+            document.body.classList.add('video-unlocked');
+        }
+        
+        // Scroll to top button
+        document.getElementById('scrollToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && !this.id) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
