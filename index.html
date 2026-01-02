@@ -111,12 +111,9 @@
             border: 2px solid var(--gray-light);
         }
 
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--black);
+        .logo-img {
+            height: 28px;
+            width: auto;
         }
 
         .header-cta {
@@ -272,6 +269,22 @@
             cursor: pointer;
             transition: all 0.2s;
             margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .lead-form button span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .lead-form button small {
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 0.85;
         }
 
         .lead-form button:hover {
@@ -333,7 +346,7 @@
 
         /* Video Locked Preview */
         .video-locked {
-            margin-top: 24px;
+            margin-bottom: 24px;
             background: var(--gray-bg);
             border-radius: 12px;
             overflow: hidden;
@@ -1239,7 +1252,7 @@
             <div class="header-content">
                 <a href="#" class="logo-container">
                     <img src="photo-max.jpg" alt="Max" class="logo-avatar">
-                    <span class="logo">Scaling MAX</span>
+                    <img src="logo-scaling-max.png" alt="Scaling MAX" class="logo-img">
                 </a>
                 <a href="#pricing" class="header-cta">Rejoindre ma communauté →</a>
             </div>
@@ -1254,7 +1267,7 @@
                     <div class="hero-tag">Complète le formulaire pour débloquer la vidéo gratuite</div>
                     <p class="hero-tagline">Scale ou lance ton business en copiant ce qui a marché pour moi.</p>
                     <h1>Découvre exactement <em>ce que tu obtiens</em> pour 79€/mois</h1>
-                    <p class="hero-subtitle">Dans la vidéo, après le formulaire, je t'explique en détail tout ce qui m'a permis d'en arriver là. Et je te présente tout ce que tu auras à ta disposition si tu rejoins la communauté. (Notion complet, Discord privé, coaching 1:1 & toutes mes méthodes d'organisation, de vente...)</p>
+                    <p class="hero-subtitle">Dans la vidéo que tu débloques en complétant le formulaire, je te présente en détail MA méthode en te partageant mon notion, en live et 100% gratuitement.</p>
                     <ul class="hero-bullets">
                         <li>Le Notion Scaling MAX en détail</li>
                         <li>Le Discord privé</li>
@@ -1269,18 +1282,6 @@
                     </div>
                     <h3>Une méthode. La vraie.</h3>
                     <p class="subtitle">Sans argent, sans réseau, sans compétences, sans idées — j'ai vendu ma startup plusieurs millions 7 ans plus tard. Voilà comment démarrer ou scaler à plus de 100K / mois</p>
-                    <form class="lead-form" id="leadForm">
-                        <div class="form-group">
-                            <label for="firstname">Prénom</label>
-                            <input type="text" id="firstname" name="firstname" placeholder="Ton prénom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="ton@email.com" required>
-                        </div>
-                        <button type="submit">Voir la méthode →</button>
-                    </form>
-                    <p class="form-note">🔒 <strong>0 spam</strong> · Tu débloques la vidéo direct</p>
                     
                     <div class="video-locked">
                         <div class="video-locked-thumbnail">
@@ -1291,6 +1292,19 @@
                             <p><strong>15 min ou je te partage mon écran en live</strong><br>Je te montre et t'explique tout en détail.</p>
                         </div>
                     </div>
+                    
+                    <form class="lead-form" id="leadForm">
+                        <div class="form-group">
+                            <label for="firstname">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="Ton prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="ton@email.com" required>
+                        </div>
+                        <button type="submit"><span>Voir la méthode →</span><small>100% gratuit</small></button>
+                    </form>
+                    <p class="form-note">🔒 <strong>0 spam</strong> · Tu débloques la vidéo direct</p>
                 </div>
             </div>
 
@@ -1361,8 +1375,8 @@
     <section class="whats-inside">
         <div class="container">
             <div class="section-header">
-                <h2>Ce que tu débloques en complétant le formulaire gratuitement</h2>
-                <p>Transparence totale, honnêteté maximale, 0 bullshit que du vécu.</p>
+                <h2>Ce que tu débloques en rejoignant la communauté</h2>
+                <p>Transparence totale, honnêteté maximale, 0 bullshit : <strong>que du vécu.</strong></p>
             </div>
             <div class="whats-inside-grid">
                 <div class="inside-card">
