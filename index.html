@@ -95,6 +95,22 @@
             align-items: center;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid var(--gray-light);
+        }
+
         .logo {
             font-family: var(--font-display);
             font-size: 1.4rem;
@@ -121,7 +137,7 @@
 
         /* Hero */
         .hero {
-            padding: 80px 0 60px;
+            padding: 20px 0 40px;
             background: linear-gradient(180deg, var(--white) 0%, var(--gray-bg) 100%);
         }
 
@@ -196,10 +212,12 @@
         }
 
         .hero-bullets li::before {
-            content: "👀";
+            content: "✓";
             position: absolute;
             left: 0;
             font-size: 1rem;
+            color: var(--accent);
+            font-weight: 700;
         }
 
         /* Lead Capture Card */
@@ -318,22 +336,65 @@
             margin-top: 24px;
             background: var(--gray-bg);
             border-radius: 12px;
-            padding: 32px;
+            overflow: hidden;
             text-align: center;
             border: 2px dashed var(--gray-light);
         }
 
-        .video-locked-icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
+        .video-locked-thumbnail {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
         }
 
-        .video-locked p {
+        .video-locked-thumbnail img {
+            width: 100%;
+            display: block;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .video-locked-thumbnail .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 0, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .video-locked-thumbnail .play-btn::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 20px;
+            border-color: transparent transparent transparent white;
+            margin-left: 4px;
+        }
+
+        .video-locked-thumbnail:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(255, 0, 0, 1);
+        }
+
+        .video-locked-text {
+            padding: 16px;
+        }
+
+        .video-locked-text p {
             color: var(--gray);
             font-size: 0.95rem;
+            margin: 0;
         }
 
-        .video-locked strong {
+        .video-locked-text strong {
             color: var(--black);
         }
 
@@ -388,7 +449,7 @@
 
         .video-container .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
         }
 
@@ -401,7 +462,6 @@
             border: none;
         }
 
-        /* Video placeholder */
         .video-placeholder {
             aspect-ratio: 16/9;
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
@@ -435,7 +495,6 @@
             font-size: 0.9rem;
         }
 
-        /* CTA Box après vidéo */
         .post-video-cta {
             background: var(--white);
             border: 2px solid var(--accent);
@@ -525,7 +584,7 @@
 
         /* Social Proof Bar */
         .social-proof-bar {
-            padding: 40px 0;
+            padding: 28px 0;
             background: var(--black);
             color: var(--white);
         }
@@ -555,65 +614,50 @@
             opacity: 0.8;
         }
 
-        /* Media / As Seen On */
-        .as-seen-on {
-            padding: 60px 0;
+        /* Media / B Smart Section */
+        .bsmart-section {
+            padding: 40px 0;
             background: var(--white);
             border-bottom: 1px solid var(--gray-light);
         }
 
-        .as-seen-on-content {
+        .bsmart-content {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            gap: 24px;
         }
 
-        .as-seen-on-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gray);
-            font-weight: 600;
+        .bsmart-image {
+            max-width: 700px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
 
-        .media-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            background: var(--gray-bg);
-            padding: 16px 24px;
-            border-radius: 12px;
+        .bsmart-caption {
+            text-align: center;
         }
 
-        .media-item img {
-            height: 50px;
-            width: auto;
-            border-radius: 8px;
-        }
-
-        .media-item-text {
-            font-size: 0.9rem;
-        }
-
-        .media-item-text strong {
+        .bsmart-caption strong {
+            font-size: 1.3rem;
             display: block;
-            font-size: 1.1rem;
+            margin-bottom: 4px;
         }
 
-        .media-item-text span {
+        .bsmart-caption span {
             color: var(--gray);
+            font-size: 1rem;
         }
 
         /* What's Inside Section */
         .whats-inside {
-            padding: 100px 0;
+            padding: 60px 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .section-header h2 {
@@ -703,14 +747,14 @@
 
         /* Story Section */
         .story {
-            padding: 100px 0;
+            padding: 60px 0;
             background: var(--gray-bg);
         }
 
         .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 50px;
             align-items: center;
         }
 
@@ -771,7 +815,7 @@
 
         /* Case Studies */
         .case-studies {
-            padding: 100px 0;
+            padding: 60px 0;
         }
 
         .case-studies-grid {
@@ -804,6 +848,7 @@
             width: 100%;
             aspect-ratio: 16/10;
             object-fit: cover;
+            object-position: center center;
         }
 
         .case-card-content {
@@ -829,7 +874,7 @@
 
         /* Anti-BS Section */
         .anti-bs {
-            padding: 80px 0;
+            padding: 50px 0;
             background: var(--black);
             color: var(--white);
         }
@@ -838,7 +883,7 @@
             font-family: var(--font-display);
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
             text-align: center;
         }
 
@@ -864,12 +909,13 @@
         }
 
         .comparison-col h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            text-transform: none;
+            letter-spacing: 0;
             margin-bottom: 24px;
             padding-bottom: 16px;
             border-bottom: 2px solid;
+            line-height: 1.4;
         }
 
         .comparison-col.no h4 {
@@ -911,7 +957,7 @@
 
         /* Pricing */
         .pricing {
-            padding: 100px 0;
+            padding: 60px 0;
             background: var(--gray-bg);
         }
 
@@ -1031,7 +1077,7 @@
 
         /* FAQ */
         .faq {
-            padding: 100px 0;
+            padding: 60px 0;
         }
 
         .faq-list {
@@ -1080,7 +1126,7 @@
 
         /* Final CTA */
         .final-cta {
-            padding: 100px 0;
+            padding: 60px 0;
             background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
             text-align: center;
             color: var(--white);
@@ -1095,7 +1141,7 @@
 
         .final-cta p {
             opacity: 0.7;
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
@@ -1120,7 +1166,7 @@
 
         /* Footer */
         footer {
-            padding: 40px 0;
+            padding: 30px 0;
             border-top: 1px solid var(--gray-light);
         }
 
@@ -1191,8 +1237,11 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">Scaling MAX</a>
-                <a href="#pricing" class="header-cta">Rejoindre →</a>
+                <a href="#" class="logo-container">
+                    <img src="photo-max.jpg" alt="Max" class="logo-avatar">
+                    <span class="logo">Scaling MAX</span>
+                </a>
+                <a href="#pricing" class="header-cta">Rejoindre ma communauté →</a>
             </div>
         </div>
     </header>
@@ -1202,24 +1251,24 @@
             <!-- STATE 1: Formulaire (avant soumission) -->
             <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="hero-tag">Vidéo gratuite · 15 min</div>
-                    <p class="hero-tagline">Scale ton business en copiant ce qui a marché pour moi.</p>
+                    <div class="hero-tag">Complète le formulaire pour débloquer la vidéo gratuite</div>
+                    <p class="hero-tagline">Scale ou lance ton business en copiant ce qui a marché pour moi.</p>
                     <h1>Découvre exactement <em>ce que tu obtiens</em> pour 79€/mois</h1>
-                    <p class="hero-subtitle">Je te fais le tour complet : le Notion avec toute ma méthode, le Discord privé, les templates, les outils. Tu vois tout avant de décider.</p>
+                    <p class="hero-subtitle">Dans la vidéo, après le formulaire, je t'explique en détail tout ce qui m'a permis d'en arriver là. Et je te présente tout ce que tu auras à ta disposition si tu rejoins la communauté. (Notion complet, Discord privé, coaching 1:1 & toutes mes méthodes d'organisation, de vente...)</p>
                     <ul class="hero-bullets">
                         <li>Le Notion Scaling MAX en détail</li>
-                        <li>Le Discord et comment j'y réponds</li>
-                        <li>Les templates prêts à utiliser</li>
+                        <li>Le Discord privé</li>
+                        <li>Toutes mes méthodes (Organisation, Vente, Levée de fond, Vendre sa boite..)</li>
                         <li>Pour qui c'est fait (et pas fait)</li>
                     </ul>
                 </div>
                 <div class="lead-form-card">
                     <div class="anti-bs-badge">
                         <span class="anti-bs-icon">🚫</span>
-                        <p>Pas de "0 à 10K/mois en 30 jours". Pas de webinaire. Pas de 5 day challenge. Pas de business IA bullshit.</p>
+                        <p>SPOILER ALERT : Pas de "0 à 10K/mois en 30 jours". Pas de webinaire. Pas de 5 day challenge. Pas de business IA bullshit.</p>
                     </div>
                     <h3>Une méthode. La vraie.</h3>
-                    <p class="subtitle">Sans argent, sans réseau, sans compétences, sans idées — j'ai vendu ma startup plusieurs millions 7 ans plus tard. Voilà comment.</p>
+                    <p class="subtitle">Sans argent, sans réseau, sans compétences, sans idées — j'ai vendu ma startup plusieurs millions 7 ans plus tard. Voilà comment démarrer ou scaler à plus de 100K / mois</p>
                     <form class="lead-form" id="leadForm">
                         <div class="form-group">
                             <label for="firstname">Prénom</label>
@@ -1234,8 +1283,13 @@
                     <p class="form-note">🔒 <strong>0 spam</strong> · Tu débloques la vidéo direct</p>
                     
                     <div class="video-locked">
-                        <div class="video-locked-icon">🎬</div>
-                        <p><strong>15 min de screenshare</strong><br>Je te montre tout : le Notion, le Discord, les templates.</p>
+                        <div class="video-locked-thumbnail">
+                            <img src="video-preview.png" alt="Aperçu de la vidéo">
+                            <div class="play-btn"></div>
+                        </div>
+                        <div class="video-locked-text">
+                            <p><strong>15 min ou je te partage mon écran en live</strong><br>Je te montre et t'explique tout en détail.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1249,17 +1303,6 @@
                 </div>
 
                 <div class="video-container">
-                    <!-- OPTION 1: Loom embed -->
-                    <!-- <div class="video-wrapper">
-                        <iframe src="https://www.loom.com/embed/VOTRE_VIDEO_ID" allowfullscreen></iframe>
-                    </div> -->
-
-                    <!-- OPTION 2: YouTube embed -->
-                    <!-- <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/VOTRE_VIDEO_ID" allowfullscreen></iframe>
-                    </div> -->
-
-                    <!-- PLACEHOLDER - À remplacer par ton embed -->
                     <div class="video-placeholder" id="videoPlaceholder">
                         <div class="play-icon">▶</div>
                         <p>Remplace ce placeholder par ton embed Loom ou YouTube</p>
@@ -1277,8 +1320,7 @@
                         <li>Tous les templates & outils</li>
                         <li>Mises à jour incluses</li>
                     </ul>
-                    <!-- STRIPE PAYMENT LINK -->
-                    <a href="https://buy.stripe.com/VOTRE_PAYMENT_LINK" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">Rejoindre maintenant →</a>
+                    <a href="https://buy.stripe.com/dRm9AT1vQ3kS1Vy0Hyf7i05" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">Rejoindre maintenant →</a>
                     <a href="#pricing" class="alt-link">Voir toutes les options</a>
                 </div>
             </div>
@@ -1304,17 +1346,13 @@
         </div>
     </section>
 
-    <!-- Section Vu dans les médias -->
-    <section class="as-seen-on">
+    <section class="bsmart-section">
         <div class="container">
-            <div class="as-seen-on-content">
-                <span class="as-seen-on-label">Vu sur</span>
-                <div class="media-item">
-                    <img src="img-bsmart-interview.png" alt="B Smart TV Interview">
-                    <div class="media-item-text">
-                        <strong>B Smart TV</strong>
-                        <span>"Exit à plusieurs millions d'euros"</span>
-                    </div>
+            <div class="bsmart-content">
+                <img src="img-bsmart-interview.png" alt="B Smart TV Interview" class="bsmart-image">
+                <div class="bsmart-caption">
+                    <strong>B Smart TV</strong>
+                    <span>"Exit à plusieurs millions d'euros"</span>
                 </div>
             </div>
         </div>
@@ -1323,8 +1361,8 @@
     <section class="whats-inside">
         <div class="container">
             <div class="section-header">
-                <h2>Ce que tu débloques à l'intérieur</h2>
-                <p>Pas de surprise. Tu sais exactement ce que tu obtiens.</p>
+                <h2>Ce que tu débloques en complétant le formulaire gratuitement</h2>
+                <p>Transparence totale, honnêteté maximale, 0 bullshit que du vécu.</p>
             </div>
             <div class="whats-inside-grid">
                 <div class="inside-card">
@@ -1335,11 +1373,11 @@
                     <div class="inside-card-body">
                         <p>La méthode complète qui m'a permis de passer de 0 à 15M€.</p>
                         <ul>
-                            <li>Case study Neoabita (150 leads à 20€)</li>
+                            <li>Un case study d'un de mes clients Neoabita qui est en route pour tripler de chiffre d'affaire en millions.</li>
                             <li>Framework audit + repositionnement</li>
                             <li>Templates tunnels de vente</li>
-                            <li>Séquences email prêtes à l'emploi</li>
-                            <li>Config tracking (Stape, iClosed, GTM)</li>
+                            <li>Playbook ultra exhaustif</li>
+                            <li>Config complète de tous les outils à suivre pas à pas (Stape, iClosed, Clickfunnel, Brevo...)</li>
                         </ul>
                     </div>
                 </div>
@@ -1369,14 +1407,14 @@
                 <div class="story-images">
                     <img src="img-team-warmango.png" alt="La team Warmango - 50 collaborateurs">
                     <img src="img-conference-ecole.png" alt="Maxime en conférence">
-                    <img src="img-bayer-lifehub.png" alt="Workshop Bayer LifeHub Lyon">
+                    <img src="img-bayer-lifehub.png" alt="Workshop accélérateur">
                 </div>
                 <div class="story-content">
                     <h2>Je suis Maxime Augiat.<br>Autodidacte, serial entrepreneur.</h2>
-                    <p>J'ai créé Warmango, une marketplace BtoB que j'ai scalée de 0 à 15M€ de CA avec 50 collaborateurs. Levée de 3M€, contrats CAC40, puis exit à plusieurs millions en 2022.</p>
-                    <p>Depuis, j'ai accompagné plus de 300 entrepreneurs à scaler leur business avec cette méthode. Je donne aussi des conférences en écoles de commerce et dans des accélérateurs comme le Bayer LifeHub.</p>
+                    <p>J'ai créé Warmango, une marketplace BtoB que j'ai scalée de 0 à 15M€ de CA avec 50 collaborateurs. Levée de 3M€+, plus de 50 contrats avec des groupes du CAC40 faisant plusieurs milliards de CA, puis exit, 100% upfront, à plusieurs millions en 2022.</p>
+                    <p>Depuis, j'ai accompagné plus de 300 entrepreneurs à scaler leur business avec cette méthode. Je donne aussi des conférences au sein de grandes écoles de commerce et dans des accélérateurs (H7, Station F..)</p>
                     <div class="story-highlight">
-                        <p>❌ Pas de "gourou" depuis Dubaï. Juste un entrepreneur qui l'a fait — et qui continue.</p>
+                        <p>❌ Ici pas de "gourou" depuis Dubaï qui fait semblant d'avoir réussi en louant des Lamborghini pour faire des story insta. Juste un entrepreneur qui l'a fait — et qui est en mission pour que d'autres entrepreneurs le fassent à leur tour.</p>
                     </div>
                 </div>
             </div>
@@ -1391,7 +1429,7 @@
             </div>
             <div class="case-studies-grid">
                 <div class="case-card">
-                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345597/file/719943c6da6975f22a3a5e3b76db1ae3.png" alt="BeeToGreen">
+                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345597/file/719943c6da6975f22a3a5e3b76db1ae3.png" alt="BeeToGreen" style="object-position: center 20%;">
                     <div class="case-card-content">
                         <h3>BeeToGreen</h3>
                         <p class="type">Marketplace BtoBtoC</p>
@@ -1399,7 +1437,7 @@
                     </div>
                 </div>
                 <div class="case-card">
-                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345598/file/799c89b7284aef445adc3183507c3c99.png" alt="Palm-AI">
+                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345598/file/799c89b7284aef445adc3183507c3c99.png" alt="Palm-AI" style="object-position: center 30%;">
                     <div class="case-card-content">
                         <h3>Palm-AI</h3>
                         <p class="type">SaaS AI</p>
@@ -1407,7 +1445,7 @@
                     </div>
                 </div>
                 <div class="case-card">
-                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345599/file/8962d735891179963b5019857cca4570.png" alt="Armin">
+                    <img src="https://statics.myclickfunnels.com/workspace/JyVNOX/image/15345599/file/8962d735891179963b5019857cca4570.png" alt="Armin" style="object-position: center 25%;">
                     <div class="case-card-content">
                         <h3>Armin</h3>
                         <p class="type">Consumer BtoC</p>
@@ -1420,22 +1458,23 @@
 
     <section class="anti-bs">
         <div class="container-narrow">
-            <h2>Ce qui marche, c'est de bosser.</h2>
+            <h2>Ce qui marche, c'est de bosser. Avec moi en plus à tes côtés.</h2>
             <div class="comparison">
                 <div class="comparison-col no">
-                    <h4>Pas ici</h4>
+                    <h4>Tu n'as rien à faire ici si tu cherches :</h4>
                     <ul>
                         <li>5 days challenges</li>
                         <li>Webinaires de 3h</li>
                         <li>Promesses de revenus passifs</li>
                         <li>Screenshots Stripe douteux</li>
+                        <li>Faux témoignages clients</li>
                     </ul>
                 </div>
                 <div class="comparison-col yes">
-                    <h4>Ici</h4>
+                    <h4>Tu es au bon endroit si tu cherches :</h4>
                     <ul>
                         <li>Méthode testée sur ma boîte</li>
-                        <li>Templates prêts à utiliser</li>
+                        <li>Mes méthodes pour réussir à chaque étape</li>
                         <li>Du concret et de l'exécution</li>
                         <li>Accès direct à moi</li>
                     </ul>
@@ -1447,7 +1486,7 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Choisis ton niveau</h2>
+                <h2>Choisis ton format</h2>
                 <p>Commence par la communauté. Upgrade quand tu veux.</p>
             </div>
             <div class="pricing-cards">
@@ -1458,24 +1497,24 @@
                     <ul>
                         <li>Notion Scaling MAX complet</li>
                         <li>Discord privé</li>
-                        <li>Tous les templates</li>
+                        <li>Mes méthodes pour réussir à chaque étape</li>
                         <li>Sessions Q&A</li>
                         <li>Mises à jour</li>
                     </ul>
-                    <a href="https://buy.stripe.com/VOTRE_PAYMENT_LINK" class="pricing-cta" onclick="fbq('track', 'InitiateCheckout');">Rejoindre →</a>
+                    <a href="https://buy.stripe.com/dRm9AT1vQ3kS1Vy0Hyf7i05" class="pricing-cta" onclick="fbq('track', 'InitiateCheckout');">Rejoindre →</a>
                 </div>
                 <div class="pricing-card">
                     <h3>Accompagnement 1:1</h3>
                     <div class="price">Sur mesure</div>
-                    <p class="price-note">À partir de 1 500€/mois</p>
+                    <p class="price-note">À partir de 1 500€/mois (inclus l'abonnement communauté)</p>
                     <ul>
-                        <li>Tout Communauté inclus</li>
-                        <li>Audit complet</li>
+                        <li>Tout ce qui est proposé dans Communauté</li>
+                        <li>Audit complet personnalisé</li>
                         <li>Coaching hebdo</li>
                         <li>Plan d'action custom</li>
-                        <li>Mon réseau</li>
+                        <li>Mon réseau (Recrutement, Investisseurs, Carnets d'adresses grands comptes..)</li>
                     </ul>
-                    <a href="https://calendly.com/VOTRE_CALENDLY" class="pricing-cta" style="background: transparent; border: 2px solid var(--black); color: var(--black);">Réserver un appel →</a>
+                    <a href="#" class="pricing-cta iclosed-popup" data-url="https://app.iclosed.io/e/maximeaugiat/accompagnement-1-1" style="background: transparent; border: 2px solid var(--black); color: var(--black);">Réserver un appel →</a>
                 </div>
             </div>
         </div>
@@ -1496,7 +1535,7 @@
                 <details class="faq-item">
                     <summary>Je peux annuler quand je veux ?</summary>
                     <div class="answer">
-                        <p>Oui. Sans engagement, annulable en 1 clic depuis Stripe.</p>
+                        <p>Oui. Sans engagement, annulable en 1 clic.</p>
                     </div>
                 </details>
                 <details class="faq-item">
@@ -1509,6 +1548,48 @@
                     <summary>Différence avec l'accompagnement 1:1 ?</summary>
                     <div class="answer">
                         <p>La communauté = accès à la méthode et au groupe. L'accompagnement 1:1 = je travaille directement sur ton business avec toi.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Je me lance, c'est fait pour moi ?</summary>
+                    <div class="answer">
+                        <p>Oui. C'est même le meilleur moment. Tu vas éviter les erreurs que j'ai faites et gagner des mois (voire des années). La méthode couvre tout : de l'idée à la structuration, en passant par l'acquisition et la vente.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Je fais déjà 50-100K/mois, c'est fait pour moi ?</summary>
+                    <div class="answer">
+                        <p>Absolument. À ce stade, tu as besoin de structurer pour scaler sans t'épuiser. Tunnels, tracking, process, recrutement... C'est exactement ce que j'ai dû mettre en place pour passer de 0 à 15M€. Tu trouveras des frameworks actionnables immédiatement.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>79€/mois c'est cher !</summary>
+                    <div class="answer">
+                        <p>C'est moins qu'un resto pour deux. Si tu appliques ne serait-ce qu'une seule méthode du Notion, tu rentabilises ton abonnement le premier mois. Et si ça ne te convient pas, tu annules en 1 clic. Zéro risque.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Pourquoi te faire confiance ?</summary>
+                    <div class="answer">
+                        <p>Parce que j'ai fait ce que j'enseigne. Exit à plusieurs millions, 50 contrats CAC40, 15M€ de CA, 300+ entrepreneurs accompagnés. Je ne suis pas un "coach" qui a lu des livres. Je suis un entrepreneur qui partage ce qui a marché pour lui — et qui continue de monter des boîtes.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>C'est quoi la différence avec les autres formations ?</summary>
+                    <div class="answer">
+                        <p>Pas de blabla théorique. Pas de vidéos de 45h que tu ne regarderas jamais. Ici c'est du concret : des templates, des frameworks, des cas réels, et un accès direct à moi sur Discord. Tu poses ta question, je réponds.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>J'ai pas le temps...</summary>
+                    <div class="answer">
+                        <p>Justement. La méthode est faite pour te faire gagner du temps. Ce sont des templates prêts à l'emploi, des process à copier-coller. Tu prends ce dont tu as besoin, quand tu en as besoin. Pas de programme à suivre dans l'ordre.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Est-ce que ça marche vraiment ?</summary>
+                    <div class="answer">
+                        <p>Regarde les résultats de BeeToGreen, Palm-AI, Armin, Neoabita... Ce sont de vrais entrepreneurs qui ont appliqué la méthode. Après, ça dépend de toi. Je te donne les outils, c'est toi qui exécutes.</p>
                     </div>
                 </details>
             </div>
@@ -1528,22 +1609,19 @@
             <div class="footer-content">
                 <p>© 2025 Maxime Augiat</p>
                 <div class="footer-links">
-                    <a href="#">Mentions légales</a>
-                    <a href="#">CGV</a>
+                    <a href="mentions-legales.html">Mentions légales</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Form submission - Unlock video
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const firstname = document.getElementById('firstname').value;
             const email = document.getElementById('email').value;
             
-            // Track lead event - Meta Pixel
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
                     content_name: 'Video Tour Scaling MAX',
@@ -1551,7 +1629,6 @@
                 });
             }
             
-            // Track in GTM dataLayer
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'lead_captured',
@@ -1560,36 +1637,21 @@
                 });
             }
             
-            // TODO: Envoyer à Brevo via webhook
-            // fetch('VOTRE_WEBHOOK_BREVO', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email, firstname })
-            // });
-            
-            // Unlock video
             document.body.classList.add('video-unlocked');
-            
-            // Scroll to top
             document.querySelector('.hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
-            // Store in localStorage
             localStorage.setItem('videoUnlocked', 'true');
             localStorage.setItem('userFirstname', firstname);
         });
         
-        // Check if already unlocked
         if (localStorage.getItem('videoUnlocked') === 'true') {
             document.body.classList.add('video-unlocked');
         }
         
-        // Scroll to top button
         document.getElementById('scrollToTop').addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector('.hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
         
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -1603,5 +1665,7 @@
             });
         });
     </script>
+    <!-- iClosed popup widget -->
+    <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
 </body>
 </html>
