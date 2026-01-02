@@ -149,6 +149,25 @@
             transform: translateY(-1px);
         }
 
+        .header-cta .arrow {
+            display: inline;
+        }
+
+        @media (max-width: 500px) {
+            .header-cta {
+                padding: 10px 14px;
+                font-size: 0.75rem;
+            }
+            
+            .header-cta .arrow {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 12px;
+            }
+        }
+
         /* Hero */
         .hero {
             padding: 20px 0 40px;
@@ -247,6 +266,12 @@
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             border: 1px solid var(--gray-light);
+        }
+
+        @media (max-width: 500px) {
+            .lead-form-card {
+                padding: 24px 16px;
+            }
         }
 
         .lead-form {
@@ -595,19 +620,43 @@
         /* Responsive: petits boutons sur mobile */
         @media (max-width: 600px) {
             .video-controls {
-                top: 10px;
-                gap: 6px;
+                top: 8px;
+                gap: 4px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .video-btn {
-                padding: 6px 10px;
-                font-size: 0.7rem;
-                border-radius: 6px;
+                padding: 5px 8px;
+                font-size: 0.65rem;
+                border-radius: 4px;
             }
             
             .sound-btn .sound-off,
             .sound-btn .sound-on {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
+            }
+            
+            .skip-btn, .recap-btn {
+                font-size: 0.6rem;
+                padding: 4px 6px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .video-controls {
+                top: 5px;
+                gap: 3px;
+            }
+            
+            .video-btn {
+                padding: 4px 6px;
+                font-size: 0.55rem;
+            }
+            
+            .skip-btn, .recap-btn {
+                font-size: 0.5rem;
+                padding: 3px 5px;
             }
         }
             overflow: hidden;
@@ -1153,6 +1202,16 @@
             transition: border-color 0.3s;
         }
 
+        @media (max-width: 500px) {
+            .pricing-card {
+                padding: 20px 12px;
+            }
+            
+            .iclosed-widget {
+                height: 580px !important;
+            }
+        }
+
         .pricing-card:hover {
             border-color: var(--gray);
         }
@@ -1410,7 +1469,7 @@
                     <img src="photo-max.jpg" alt="Max" class="logo-avatar">
                     <span class="logo">Scaling<span class="separator">|</span><span class="max">MAX</span></span>
                 </a>
-                <a href="#pricing" class="header-cta">Rejoindre ma communauté →</a>
+                <a href="#pricing" class="header-cta">Rejoindre<span class="arrow"> →</span></a>
             </div>
         </div>
     </header>
@@ -1485,8 +1544,8 @@
                                 <span class="sound-on" style="display:none;">🔊</span>
                             </button>
                             <button class="video-btn speed-btn" id="speedBtn">⚡ 1x</button>
-                            <button class="video-btn skip-btn" id="skipBtn">⏩ Comment scaler</button>
-                            <button class="video-btn recap-btn" id="recapBtn">📋 Recap de l'offre</button>
+                            <button class="video-btn skip-btn" id="skipBtn">⏩ Scaler</button>
+                            <button class="video-btn recap-btn" id="recapBtn">📋 L'offre</button>
                         </div>
                     </div>
                 </div>
