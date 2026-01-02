@@ -450,6 +450,15 @@
         .unlocked-header {
             text-align: center;
             margin-bottom: 40px;
+            transition: all 0.5s ease;
+        }
+
+        .unlocked-header.hidden {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
 
         .unlocked-badge {
@@ -478,6 +487,129 @@
         .video-container {
             background: var(--black);
             border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .video-wrapper {
+            position: relative;
+        }
+
+        .video-controls {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .video-btn {
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .video-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.03);
+        }
+
+        .sound-btn {
+            background: rgba(255, 77, 0, 0.9);
+            animation: pulse 2s infinite;
+        }
+
+        .sound-btn:hover {
+            background: rgba(255, 77, 0, 1);
+        }
+
+        .sound-btn.active {
+            background: rgba(34, 197, 94, 0.9);
+            animation: none;
+        }
+
+        .skip-btn {
+            background: rgba(255, 77, 0, 0.9);
+        }
+
+        .skip-btn:hover {
+            background: rgba(255, 77, 0, 1);
+        }
+
+        .recap-btn {
+            background: rgba(255, 77, 0, 0.9);
+        }
+
+        .recap-btn:hover {
+            background: rgba(255, 77, 0, 1);
+        }
+
+        .replay-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 77, 0, 0.95);
+            color: white;
+            border: none;
+            padding: 20px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .replay-btn span:first-child {
+            font-size: 2rem;
+        }
+
+        .replay-btn:hover {
+            background: rgba(255, 77, 0, 1);
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 77, 0, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 77, 0, 0); }
+        }
+
+        /* Responsive: petits boutons sur mobile */
+        @media (max-width: 600px) {
+            .video-controls {
+                top: 10px;
+                gap: 6px;
+            }
+            
+            .video-btn {
+                padding: 6px 10px;
+                font-size: 0.7rem;
+                border-radius: 6px;
+            }
+            
+            .sound-btn .sound-off,
+            .sound-btn .sound-on {
+                font-size: 0.7rem;
+            }
+        }
             overflow: hidden;
             box-shadow: 0 30px 80px rgba(0,0,0,0.2);
             margin-bottom: 40px;
@@ -1335,27 +1467,40 @@
             <div class="hero-unlocked">
                 <div class="unlocked-header">
                     <div class="unlocked-badge">✓ Accès débloqué</div>
-                    <h2>Voilà ce que tu obtiens pour 79€/mois</h2>
-                    <p>Regarde la vidéo, je te montre tout en screenshare.</p>
                 </div>
 
                 <div class="video-container">
-                    <div class="video-placeholder" id="videoPlaceholder">
-                        <div class="play-icon">▶</div>
-                        <p>Remplace ce placeholder par ton embed Loom ou YouTube</p>
+                    <div class="video-wrapper">
+                        <div style="padding:56.25% 0 0 0;position:relative;">
+                            <iframe id="vimeoPlayer" src="https://player.vimeo.com/video/1150992223?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;" title="Comment lancer ou scaler ton business."></iframe>
+                            <button class="replay-btn" id="replayBtn" style="display:none;">
+                                <span>▶</span>
+                                <span>Revoir la vidéo</span>
+                            </button>
+                        </div>
+                        <div class="video-controls">
+                            <button class="video-btn sound-btn" id="soundBtn">
+                                <span class="sound-off">🔇</span>
+                                <span class="sound-on" style="display:none;">🔊</span>
+                            </button>
+                            <button class="video-btn speed-btn" id="speedBtn">⚡ 1x</button>
+                            <button class="video-btn skip-btn" id="skipBtn">⏩ Comment scaler</button>
+                            <button class="video-btn recap-btn" id="recapBtn">📋 Recap de l'offre</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="post-video-cta">
                     <h3>Ça te parle ?</h3>
-                    <p>Rejoins maintenant et accède à tout ce que tu viens de voir.</p>
+                    <p>Rejoins la communauté maintenant !</p>
                     <div class="price-tag">79€ <span>/mois</span></div>
                     <p class="price-note">Sans engagement · Annulable en 1 clic</p>
                     <ul>
                         <li>Accès immédiat au Notion complet</li>
                         <li>Accès au Discord privé</li>
-                        <li>Tous les templates & outils</li>
+                        <li>Toutes mes méthodes (Vente, Organisation, Scaling..)</li>
                         <li>Mises à jour incluses</li>
+                        <li>Accès direct à moi sur discord</li>
                     </ul>
                     <a href="https://buy.stripe.com/dRm9AT1vQ3kS1Vy0Hyf7i05" class="cta-btn" onclick="fbq('track', 'InitiateCheckout');">Rejoindre maintenant →</a>
                     <a href="#pricing" class="alt-link">Voir toutes les options</a>
@@ -1678,10 +1823,25 @@
             document.querySelector('.hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
             localStorage.setItem('videoUnlocked', 'true');
             localStorage.setItem('userFirstname', firstname);
+            
+            // Faire disparaître le badge après 2 secondes
+            setTimeout(function() {
+                const unlockedHeader = document.querySelector('.unlocked-header');
+                if (unlockedHeader) {
+                    unlockedHeader.classList.add('hidden');
+                }
+            }, 2000);
         });
         
         if (localStorage.getItem('videoUnlocked') === 'true') {
             document.body.classList.add('video-unlocked');
+            // Masquer le badge directement si déjà débloqué
+            setTimeout(function() {
+                const unlockedHeader = document.querySelector('.unlocked-header');
+                if (unlockedHeader) {
+                    unlockedHeader.classList.add('hidden');
+                }
+            }, 2000);
         }
         
         document.getElementById('scrollToTop').addEventListener('click', function(e) {
@@ -1702,7 +1862,97 @@
             });
         });
     </script>
+    <!-- Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    
     <!-- iClosed popup widget -->
     <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+    
+    <script>
+        // Contrôle vidéo Vimeo
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('vimeoPlayer');
+            const soundBtn = document.getElementById('soundBtn');
+            const speedBtn = document.getElementById('speedBtn');
+            const skipBtn = document.getElementById('skipBtn');
+            const recapBtn = document.getElementById('recapBtn');
+            const replayBtn = document.getElementById('replayBtn');
+            
+            if (iframe && soundBtn) {
+                const player = new Vimeo.Player(iframe);
+                let isMuted = true;
+                let currentSpeed = 1.25;
+                const speeds = [1, 1.25, 1.5, 1.75, 2];
+                
+                // Mettre la vitesse par défaut à 1.25x
+                player.setPlaybackRate(1.25);
+                speedBtn.textContent = '⚡ 1.25x';
+                
+                // Détecter la fin de la vidéo
+                player.on('ended', function() {
+                    replayBtn.style.display = 'flex';
+                });
+                
+                // Bouton replay
+                replayBtn.addEventListener('click', function() {
+                    player.setCurrentTime(0);
+                    player.play();
+                    replayBtn.style.display = 'none';
+                    activateSound();
+                });
+                
+                // Bouton son
+                soundBtn.addEventListener('click', function() {
+                    if (isMuted) {
+                        player.setMuted(false);
+                        player.setVolume(1);
+                        soundBtn.querySelector('.sound-off').style.display = 'none';
+                        soundBtn.querySelector('.sound-on').style.display = 'inline';
+                        soundBtn.classList.add('active');
+                        isMuted = false;
+                    } else {
+                        player.setMuted(true);
+                        soundBtn.querySelector('.sound-off').style.display = 'inline';
+                        soundBtn.querySelector('.sound-on').style.display = 'none';
+                        soundBtn.classList.remove('active');
+                        isMuted = true;
+                    }
+                });
+                
+                // Bouton vitesse
+                speedBtn.addEventListener('click', function() {
+                    let currentIndex = speeds.indexOf(currentSpeed);
+                    currentIndex = (currentIndex + 1) % speeds.length;
+                    currentSpeed = speeds[currentIndex];
+                    player.setPlaybackRate(currentSpeed);
+                    speedBtn.textContent = '⚡ ' + currentSpeed + 'x';
+                });
+                
+                // Fonction pour activer le son
+                function activateSound() {
+                    if (isMuted) {
+                        player.setMuted(false);
+                        player.setVolume(1);
+                        soundBtn.querySelector('.sound-off').style.display = 'none';
+                        soundBtn.querySelector('.sound-on').style.display = 'inline';
+                        soundBtn.classList.add('active');
+                        isMuted = false;
+                    }
+                }
+                
+                // Bouton aller à l'essentiel (5:55 = 355 secondes)
+                skipBtn.addEventListener('click', function() {
+                    player.setCurrentTime(355);
+                    activateSound();
+                });
+                
+                // Bouton recap de l'offre (15:45 = 945 secondes)
+                recapBtn.addEventListener('click', function() {
+                    player.setCurrentTime(945);
+                    activateSound();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
