@@ -235,7 +235,34 @@
         .hero-subtitle {
             font-size: 1.15rem;
             color: var(--gray);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
+        }
+
+        .hero-cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            margin-bottom: 24px;
+        }
+
+        .hero-cta-btn:hover {
+            background: #e64500;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 500px) {
+            .hero-cta-btn {
+                padding: 14px 24px;
+                font-size: 1rem;
+                display: block;
+                text-align: center;
+            }
         }
 
         .hero-bullets {
@@ -1479,10 +1506,10 @@
             <!-- STATE 1: Formulaire (avant soumission) -->
             <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="hero-tag">Complète le formulaire pour débloquer la vidéo gratuite</div>
                     <p class="hero-tagline">Scale ou lance ton business en copiant ce qui a marché pour moi.</p>
                     <h1>Découvre exactement <em>ce que tu obtiens</em> pour 79€/mois</h1>
                     <p class="hero-subtitle">Dans la vidéo que tu débloques en complétant le formulaire, je te présente en détail MA méthode en te partageant mon notion, en live et 100% gratuitement.</p>
+                    <a href="#leadForm" class="hero-cta-btn">Débloquer la vidéo gratuite →</a>
                     <ul class="hero-bullets">
                         <li>Le Notion Scaling MAX en détail</li>
                         <li>Le Discord privé</li>
