@@ -638,6 +638,13 @@
             background: rgba(107, 114, 128, 1);
         }
 
+        /* Cacher fullscreen sur mobile */
+        @media (max-width: 768px) {
+            .fullscreen-btn {
+                display: none !important;
+            }
+        }
+
         .replay-btn {
             position: absolute;
             top: 50%;
@@ -702,36 +709,73 @@
             border-radius: 0 !important;
             background: #000 !important;
             margin: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
         }
 
         .video-container.mobile-fullscreen .video-wrapper {
             padding-bottom: 0 !important;
-            height: 100vh !important;
+            height: auto !important;
+            width: 100vw !important;
+        }
+
+        .video-container.mobile-fullscreen .video-wrapper > div {
+            padding: 0 !important;
+            position: relative !important;
+            width: 100vw !important;
+            height: 56.25vw !important;
+            max-height: 100vh !important;
         }
 
         .video-container.mobile-fullscreen iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
+            position: relative !important;
+            width: 100% !important;
+            height: 100% !important;
         }
 
         .video-container.mobile-fullscreen .video-controls {
-            top: auto;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: fixed !important;
+            top: auto !important;
+            bottom: 30px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 10001 !important;
         }
 
         .video-container.mobile-fullscreen .replay-btn {
-            z-index: 10000;
+            z-index: 10002 !important;
+        }
+
+        /* Bouton fermer fullscreen mobile */
+        .close-fullscreen-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10003;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container.mobile-fullscreen .close-fullscreen-btn {
+            display: flex !important;
         }
 
         /* Cacher le body scroll en fullscreen mobile */
         body.fullscreen-active {
-            overflow: hidden;
+            overflow: hidden !important;
+            position: fixed !important;
+            width: 100% !important;
         }
 
         /* Responsive: petits boutons sur mobile */
@@ -1647,6 +1691,9 @@
                 </div>
 
                 <div class="video-container">
+                    <!-- Bouton fermer fullscreen mobile -->
+                    <button class="close-fullscreen-btn" id="closeFullscreenBtn">✕</button>
+                    
                     <div class="video-wrapper">
                         <div style="padding:56.25% 0 0 0;position:relative;">
                             <iframe id="vimeoPlayer" src="https://player.vimeo.com/video/1150992223?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;" title="Comment lancer ou scaler ton business."></iframe>
