@@ -111,6 +111,14 @@
             border: 2px solid var(--gray-light);
         }
 
+        .header-cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            gap: 4px;
+        }
+
         .header-cta {
             background: var(--black);
             color: var(--white);
@@ -120,11 +128,18 @@
             font-weight: 600;
             border-radius: 6px;
             transition: all 0.2s;
+            display: inline-block;
         }
 
-        .header-cta:hover {
+        .header-cta-container:hover .header-cta {
             background: var(--accent);
             transform: translateY(-1px);
+        }
+
+        .header-cta-price {
+            font-size: 0.75rem;
+            color: var(--gray);
+            font-style: italic;
         }
 
         /* Step Navigation */
@@ -935,24 +950,29 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
-            background: #5865F2;
+            background: var(--black);
             color: white;
             padding: 14px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.2s;
         }
 
         .sticky-discord:hover {
+            background: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(88, 101, 242, 0.5);
+            box-shadow: 0 6px 25px rgba(255, 77, 0, 0.4);
+        }
+
+        .sticky-discord svg {
+            flex-shrink: 0;
         }
 
         /* Back to top */
@@ -1086,7 +1106,7 @@
                     <img src="photo-max.jpg" alt="Max" class="logo-avatar">
                     <span class="logo">Scaling<span class="separator">|</span><span class="max">MAX</span></span>
                 </a>
-                <a href="https://app.iclosed.io/e/maximeaugiat/accompagnement-1-1" target="_blank" class="header-cta">🚀 Être coaché par Maxime</a>
+                <a href="https://app.iclosed.io/e/maximeaugiat/accompagnement-1-1" target="_blank" class="header-cta-container"><span class="header-cta">🚀 Être coaché par Maxime</span><span class="header-cta-price">à partir de 1500€ / mois</span></a>
             </div>
         </div>
     </header>
@@ -1753,7 +1773,10 @@
 
     <!-- Sticky Discord -->
     <a href="https://discord.gg/scaling-max" target="_blank" class="sticky-discord">
-        💬 Une question ?
+        <svg width="20" height="20" viewBox="0 0 127.14 96.36" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+        </svg>
+        Rejoins-nous sur Discord
     </a>
 
     <!-- Back to top -->
