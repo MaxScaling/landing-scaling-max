@@ -1678,6 +1678,10 @@
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="ton@email.com" required>
                         </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" required>
+                        </div>
                         <button type="submit"><span>Voir la méthode →</span><small>100% gratuit</small></button>
                     </form>
                     <p class="form-note">🔒 <strong>0 spam</strong> · Tu débloques la vidéo direct</p>
@@ -2024,11 +2028,37 @@
     </footer>
 
     <script>
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
+        // Fonction pour envoyer à Brevo
+        async function subscribeToBrevo(email, firstName, phone) {
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, firstName, phone, source: 'scaling-max-landing' })
+                });
+                const data = await response.json();
+                console.log('Brevo:', data);
+                return data.success || response.ok;
+            } catch (error) {
+                console.error('Brevo error:', error);
+                return false; // Continue quand même
+            }
+        }
+
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            const btn = this.querySelector('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span>Chargement...</span>';
+            btn.disabled = true;
             
             const firstname = document.getElementById('firstname').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Envoyer à Brevo
+            await subscribeToBrevo(email, firstname, phone);
             
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
