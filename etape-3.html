@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étape 3 : Profile Funnel Instagram | Scaling MAX</title>
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="description" content="Transforme ton profil Instagram en machine à leads 24/7. Story Ads + DM automatisés + ManyChat.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray: #555;
+            --gray-light: #e8e8e8;
+            --gray-bg: #f5f5f5;
+            --accent: #ff4d00;
+            --accent-dark: #e64500;
+            --success: #10b981;
+            --blue: #3b82f6;
+            --pink: #ec4899;
+            --pink-light: #fdf2f8;
+            --instagram: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --yellow-bg: #fefce8;
+            --green-bg: #f0fdf4;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* Header */
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            background: rgba(250,250,250,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo {
+            font-family: var(--font-body);
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .logo .separator {
+            color: var(--accent);
+            font-weight: 300;
+            margin: 0 2px;
+        }
+
+        .logo .max {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .logo-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid var(--gray-light);
+        }
+
+        .header-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Step Navigation */
+        .step-nav {
+            background: var(--black);
+            padding: 0;
+            overflow-x: auto;
+        }
+
+        .step-nav-inner {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .step-nav a {
+            flex: 1;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .step-nav a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .step-nav a.active {
+            color: var(--white);
+            border-bottom-color: var(--pink);
+            background: rgba(236,72,153,0.1);
+        }
+
+        .step-number {
+            background: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .step-nav a.active .step-number {
+            background: var(--pink);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--pink-light) 0%, var(--white) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(236,72,153,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255,77,0,0.05) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--instagram);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            background: var(--instagram);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hero-benefit {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            background: var(--white);
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: var(--gray-bg);
+        }
+
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Concept Card */
+        .concept-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 2px solid var(--gray-light);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .concept-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+        }
+
+        .concept-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+        }
+
+        .concept-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .concept-step .number {
+            width: 48px;
+            height: 48px;
+            background: var(--instagram);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .concept-step span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            max-width: 100px;
+            text-align: center;
+        }
+
+        .concept-arrow {
+            font-size: 1.5rem;
+            color: var(--gray-light);
+        }
+
+        /* Profile Section */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mock-profile {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-light);
+        }
+
+        .mock-profile-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .mock-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--instagram);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .mock-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .mock-stat {
+            text-align: center;
+        }
+
+        .mock-stat strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .mock-stat span {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .mock-bio {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .mock-bio strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .mock-highlights {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .mock-highlight {
+            flex-shrink: 0;
+            width: 64px;
+            text-align: center;
+        }
+
+        .mock-highlight-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--gray-bg);
+            border: 2px solid var(--gray-light);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .mock-highlight span {
+            font-size: 0.7rem;
+        }
+
+        .profile-tips {
+            list-style: none;
+        }
+
+        .profile-tips li {
+            padding: 20px;
+            margin-bottom: 16px;
+            background: var(--white);
+            border-radius: 12px;
+            border-left: 4px solid var(--pink);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .profile-tips li strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--pink);
+        }
+
+        /* Content Types */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .content-card-header {
+            padding: 24px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .content-card-header.tofu {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .content-card-header.mofu {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .content-card-header.bofu {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .content-card-header h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .content-card-header .percent {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .content-card-body {
+            padding: 24px;
+        }
+
+        .content-card-body h5 {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+
+        .content-card-body ul {
+            list-style: none;
+        }
+
+        .content-card-body li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .content-card-body li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        /* Story Ads Section */
+        .story-structure {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .story-structure {
+                grid-template-columns: 1fr;
+            }
+
+            .document-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .story-step {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-light);
+            position: relative;
+        }
+
+        .story-step::before {
+            content: attr(data-time);
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--pink);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .story-step h4 {
+            font-size: 1.1rem;
+            margin: 20px 0 12px;
+        }
+
+        .story-step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* DM Flow */
+        .dm-flow-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+
+        .dm-flow-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dm-flow-header .icon {
+            font-size: 1.5rem;
+        }
+
+        .dm-flow-body {
+            padding: 24px;
+        }
+
+        .dm-message {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .dm-message.bot {
+            justify-content: flex-start;
+        }
+
+        .dm-message.user {
+            justify-content: flex-end;
+        }
+
+        .dm-bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+        }
+
+        .dm-message.bot .dm-bubble {
+            background: var(--gray-bg);
+            border-bottom-left-radius: 4px;
+        }
+
+        .dm-message.user .dm-bubble {
+            background: var(--pink);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .dm-trigger {
+            display: inline-block;
+            background: var(--yellow-bg);
+            color: #92400e;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        /* Funnel Types */
+        .funnel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .funnel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .funnel-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid var(--gray-light);
+            transition: all 0.3s;
+        }
+
+        .funnel-card:hover {
+            border-color: var(--pink);
+            transform: translateY(-4px);
+        }
+
+        .funnel-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .funnel-card .target {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .funnel-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .funnel-flow-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            background: var(--gray-bg);
+            border-radius: 8px;
+        }
+
+        .funnel-flow-step .arrow {
+            color: var(--pink);
+        }
+
+        /* Case Studies */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .case-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .case-card-header {
+            background: var(--instagram);
+            color: var(--white);
+            padding: 24px;
+        }
+
+        .case-card-header h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .case-card-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .case-card-body {
+            padding: 24px;
+        }
+
+        .case-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .case-stat {
+            text-align: center;
+            padding: 12px;
+            background: var(--gray-bg);
+            border-radius: 8px;
+        }
+
+        .case-stat .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pink);
+        }
+
+        .case-stat .label {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .case-roi {
+            background: var(--green-bg);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--pink-light);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #f9a8d4;
+        }
+
+        .checklist h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .checklist-section h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--pink);
+        }
+
+        .checklist-section ul {
+            list-style: none;
+        }
+
+        .checklist-section li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 8px 12px;
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .checklist-section li::before {
+            content: "☐";
+            color: var(--gray);
+        }
+
+        /* Recap */
+        .recap-card {
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+            color: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .recap-card h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 32px;
+        }
+
+        .recap-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .recap-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .recap-step {
+            background: rgba(255,255,255,0.05);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .recap-step h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .recap-step p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .recap-formula {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-benefits {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step-nav a {
+                padding: 16px;
+                font-size: 0.8rem;
+            }
+
+            .step-nav a span:not(.step-number) {
+                display: none;
+            }
+
+            .concept-flow {
+                flex-direction: column;
+            }
+
+            .concept-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo-container">
+                    <img src="photo-max.jpg" alt="Max" class="logo-avatar">
+                    <span class="logo">Scaling<span class="separator">|</span><span class="max">MAX</span></span>
+                </a>
+                <a href="/" class="header-cta">← Retour</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Step Navigation -->
+    <nav class="step-nav">
+        <div class="step-nav-inner">
+            <a href="/etape-1">
+                <span class="step-number">ÉTAPE 1</span>
+                <span>Bienvenue & Case Study</span>
+            </a>
+            <a href="/etape-2">
+                <span class="step-number">ÉTAPE 2</span>
+                <span>Tunnels Custom Full IA</span>
+            </a>
+            <a href="/etape-3" class="active">
+                <span class="step-number">ÉTAPE 3</span>
+                <span>Profile Funnel Instagram</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">📱 ÉTAPE 3 • NIVEAU EXPERT</span>
+                <h1>Profile Funnel <em>Instagram</em></h1>
+                <p class="hero-subtitle">
+                    Transforme ton profil Instagram en machine à leads 24/7. 
+                    Story Ads + DM automatisés + ManyChat. Le niveau expert.
+                </p>
+                <div class="hero-benefits">
+                    <div class="hero-benefit">
+                        <span>🎯</span>
+                        <span>Leads sans plus de budget ads</span>
+                    </div>
+                    <div class="hero-benefit">
+                        <span>🤖</span>
+                        <span>Qualification automatisée</span>
+                    </div>
+                    <div class="hero-benefit">
+                        <span>💤</span>
+                        <span>Book des calls en dormant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="section">
+        <div class="container">
+            <div class="concept-card">
+                <h3>🎯 Le concept clé</h3>
+                <p style="color: var(--gray); margin-bottom: 24px;">
+                    Ton profil Instagram devient ton PREMIER tunnel de vente. 
+                    Les prospects te découvrent comme une PERSONNE, pas juste une page de vente.
+                </p>
+                <div class="concept-flow">
+                    <div class="concept-step">
+                        <span class="number">1</span>
+                        <span>Attirer via Ads/Organique</span>
+                    </div>
+                    <span class="concept-arrow">→</span>
+                    <div class="concept-step">
+                        <span class="number">2</span>
+                        <span>Engager (Posts, Stories)</span>
+                    </div>
+                    <span class="concept-arrow">→</span>
+                    <div class="concept-step">
+                        <span class="number">3</span>
+                        <span>Convertir en DM</span>
+                    </div>
+                    <span class="concept-arrow">→</span>
+                    <div class="concept-step">
+                        <span class="number">4</span>
+                        <span>Qualifier auto</span>
+                    </div>
+                    <span class="concept-arrow">→</span>
+                    <div class="concept-step">
+                        <span class="number">5</span>
+                        <span>Booker le call</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Optimization -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔥 Optimise ton Profil</h2>
+                <p>Ton profil doit répondre en 3 secondes : Qui tu es, ce que tu fais, pourquoi te suivre</p>
+            </div>
+
+            <div class="profile-grid">
+                <div class="mock-profile">
+                    <div class="mock-profile-header">
+                        <div class="mock-avatar">🎥</div>
+                        <div class="mock-stats">
+                            <div class="mock-stat">
+                                <strong>890</strong>
+                                <span>Posts</span>
+                            </div>
+                            <div class="mock-stat">
+                                <strong>47K</strong>
+                                <span>Followers</span>
+                            </div>
+                            <div class="mock-stat">
+                                <strong>320</strong>
+                                <span>Following</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mock-bio">
+                        <strong>Léa | Coach Viralité 🚀</strong>
+                        J'aide les créateurs à devenir viraux<br>
+                        ✅ +200M de vues générées pour mes clients<br>
+                        ✅ +120 créateurs accompagnés<br>
+                        👇 DM "VIRAL" pour la méthode gratuite
+                    </div>
+                    <div class="mock-highlights">
+                        <div class="mock-highlight">
+                            <div class="mock-highlight-circle">👋</div>
+                            <span>À propos</span>
+                        </div>
+                        <div class="mock-highlight">
+                            <div class="mock-highlight-circle">📈</div>
+                            <span>Résultats</span>
+                        </div>
+                        <div class="mock-highlight">
+                            <div class="mock-highlight-circle">⚙️</div>
+                            <span>Process</span>
+                        </div>
+                        <div class="mock-highlight">
+                            <div class="mock-highlight-circle">❓</div>
+                            <span>FAQ</span>
+                        </div>
+                        <div class="mock-highlight">
+                            <div class="mock-highlight-circle">💎</div>
+                            <span>Offre</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="profile-tips">
+                    <li>
+                        <strong>📸 Photo de profil</strong>
+                        Photo pro, visage visible, fond neutre. Pas de logo (sauf marque établie).
+                    </li>
+                    <li>
+                        <strong>✍️ Nom & Username</strong>
+                        Username simple + Nom = Prénom + mot-clé recherché. Ex: "Léa | Coach Viralité"
+                    </li>
+                    <li>
+                        <strong>📝 Bio (150 caractères)</strong>
+                        Ligne 1: Ce que tu fais + pour qui. Ligne 2: Résultat. Ligne 3: Preuve sociale. Ligne 4: CTA.
+                    </li>
+                    <li>
+                        <strong>🔗 Lien en bio</strong>
+                        Vers ta landing page custom de l'Étape 2 pour garder la cohérence visuelle.
+                    </li>
+                    <li>
+                        <strong>⭐ Highlights</strong>
+                        5-6 catégories : À propos, Résultats, Process, FAQ, Offre, Contact.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Types -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎬 Le Content Ecosystem</h2>
+                <p>3 types de contenu stratégiques pour chaque étape du funnel</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="content-card-header tofu">
+                        <h4>TOFU</h4>
+                        <span class="percent">50%</span>
+                        <p>Attirer de nouvelles personnes</p>
+                    </div>
+                    <div class="content-card-body">
+                        <h5>Formats</h5>
+                        <ul>
+                            <li>Reels viraux (hooks forts)</li>
+                            <li>Carousels éducatifs</li>
+                            <li>Posts controversés</li>
+                        </ul>
+                        <h5 style="margin-top: 16px;">Exemples de hooks</h5>
+                        <ul>
+                            <li>"La vérité que personne ne te dit..."</li>
+                            <li>"Arrête de faire ça si tu veux..."</li>
+                            <li>"Le secret des entrepreneurs à 7 chiffres..."</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="content-card-header mofu">
+                        <h4>MOFU</h4>
+                        <span class="percent">30%</span>
+                        <p>Construire la confiance</p>
+                    </div>
+                    <div class="content-card-body">
+                        <h5>Formats</h5>
+                        <ul>
+                            <li>Stories quotidiennes (BTS)</li>
+                            <li>Cas clients détaillés</li>
+                            <li>Lives éducatifs</li>
+                            <li>Q&A interactifs</li>
+                        </ul>
+                        <h5 style="margin-top: 16px;">Ce qui marche</h5>
+                        <ul>
+                            <li>Montrer ton process</li>
+                            <li>Partager tes erreurs</li>
+                            <li>Humaniser ta marque</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="content-card-header bofu">
+                        <h4>BOFU</h4>
+                        <span class="percent">20%</span>
+                        <p>Convertir les prospects chauds</p>
+                    </div>
+                    <div class="content-card-body">
+                        <h5>Formats</h5>
+                        <ul>
+                            <li>Témoignages clients (vidéo)</li>
+                            <li>Offres limitées</li>
+                            <li>Posts "DM moi si..."</li>
+                            <li>Stories avec CTA direct</li>
+                        </ul>
+                        <h5 style="margin-top: 16px;">Ce qui marche</h5>
+                        <ul>
+                            <li>Urgence réelle (pas fake)</li>
+                            <li>Social proof spécifique</li>
+                            <li>CTA ultra-clair</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Document Don't Create -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>📹 Document, Ne Crée Pas</h2>
+                <p>Le secret des créateurs qui scalent sans s'épuiser</p>
+            </div>
+
+            <div class="document-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px;">
+                <!-- Wrong Way -->
+                <div style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border: 2px solid #ef4444; border-radius: 16px; padding: 32px;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">❌</div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 12px; color: #dc2626;">Ce qu'il ne faut PAS faire</h4>
+                    <p style="color: var(--gray); margin-bottom: 16px;">
+                        Te mettre face caméra pour <strong>"parler à ton audience"</strong>. 
+                        Ça donne l'impression que tu prends du temps spécialement pour eux = tu n'es pas occupé = tu n'es pas en demande.
+                    </p>
+                    <ul style="list-style: none; color: var(--gray);">
+                        <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444;">✕</span>
+                            "Hey, aujourd'hui je vais vous parler de..."
+                        </li>
+                        <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444;">✕</span>
+                            Setup studio + ring light + script préparé
+                        </li>
+                        <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ef4444;">✕</span>
+                            Sensation de "cours magistral"
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Way -->
+                <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #10b981; border-radius: 16px; padding: 32px;">
+                    <div style="font-size: 2rem; margin-bottom: 16px;">✅</div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 12px; color: #059669;">Ce qu'il faut faire</h4>
+                    <p style="color: var(--gray); margin-bottom: 16px;">
+                        <strong>Documente ce que tu fais PENDANT que tu le fais.</strong> 
+                        Ça montre que tu es sous l'eau, en action, avec des vrais clients = preuve sociale implicite.
+                    </p>
+                    <ul style="list-style: none; color: var(--gray);">
+                        <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+                            "Là je suis en train de bosser sur un tunnel pour un client..."
+                        </li>
+                        <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+                            Capturer sur le vif, authentique, imparfait
+                        </li>
+                        <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+                            Sensation de "accès VIP backstage"
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Screen Share Tip -->
+            <div style="background: linear-gradient(135deg, var(--purple-bg) 0%, #ede9fe 100%); border: 2px solid var(--purple); border-radius: 16px; padding: 32px;">
+                <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+                    <div style="font-size: 2.5rem;">🖥️</div>
+                    <div style="flex: 1; min-width: 280px;">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 12px;">Pro Tip : Le Screen Share</h4>
+                        <p style="color: var(--gray); margin-bottom: 16px;">
+                            <strong>Partage ton écran</strong> pendant que tu parles ! Les gens peuvent voir tes schémas, 
+                            tes tableaux, tes interfaces en même temps que tu expliques. 
+                        </p>
+                        <p style="color: var(--gray);">
+                            <strong>→ Résultat :</strong> Tu réduis l'effort cognitif pour comprendre ce que tu dis. 
+                            Ton contenu devient <strong>10x plus digeste</strong> et tu apportes bien plus de valeur qu'un simple face caméra.
+                        </p>
+                        <div style="margin-top: 16px; padding: 12px 16px; background: rgba(139,92,246,0.15); border-radius: 8px;">
+                            <p style="margin: 0; font-weight: 600; color: #7c3aed;">
+                                💡 Exemple : Au lieu de dire "j'ai créé un tunnel en 3 étapes", 
+                                MONTRE le tunnel à l'écran pendant que tu l'expliques.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Ads -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>📣 Story Ads : La Machine à DMs</h2>
+                <p>Format immersif, coût plus bas, sentiment d'authenticité</p>
+            </div>
+
+            <div class="story-structure">
+                <div class="story-step" data-time="0-3 sec">
+                    <h4>🎣 Le Hook</h4>
+                    <p>Arrêter le scroll. Question provocante, affirmation choquante, résultat impressionnant.</p>
+                </div>
+                <div class="story-step" data-time="3-10 sec">
+                    <h4>💎 La Valeur</h4>
+                    <p>Identifier le problème. Teaser la solution. Créer la curiosité.</p>
+                </div>
+                <div class="story-step" data-time="10-15 sec">
+                    <h4>🎯 Le CTA</h4>
+                    <p>"Suis-moi pour voir comment", "DM moi INFO pour le guide", "Clique sur mon profil"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DM Automation -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🤖 Automatisation des DMs</h2>
+                <p>ManyChat ou Inro pour qualifier et engager 24/7</p>
+            </div>
+
+            <div class="dm-flow-card">
+                <div class="dm-flow-header">
+                    <span class="icon">💬</span>
+                    <h4>Flow 1 : Nouveau Follower</h4>
+                </div>
+                <div class="dm-flow-body">
+                    <span class="dm-trigger">Trigger: Nouveau follower</span>
+                    <div class="dm-message bot">
+                        <div class="dm-bubble">Hey ! 👋 Merci de me suivre. Tu es entrepreneur ? Coach ? Consultant ?</div>
+                    </div>
+                    <div class="dm-message user">
+                        <div class="dm-bubble">Oui, je suis consultant en marketing</div>
+                    </div>
+                    <div class="dm-message bot">
+                        <div class="dm-bubble">Top ! 🔥 C'est quoi ton plus gros challenge en ce moment pour acquérir des clients ?</div>
+                    </div>
+                    <div class="dm-message user">
+                        <div class="dm-bubble">Générer des leads qualifiés régulièrement</div>
+                    </div>
+                    <div class="dm-message bot">
+                        <div class="dm-bubble">J'ai justement un guide gratuit sur ça. Tu veux que je t'envoie le lien ? 📚</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dm-flow-card">
+                <div class="dm-flow-header">
+                    <span class="icon">🔑</span>
+                    <h4>Flow 2 : Keyword Trigger</h4>
+                </div>
+                <div class="dm-flow-body">
+                    <span class="dm-trigger">Trigger: Quelqu'un écrit "INFO" ou "GUIDE"</span>
+                    <div class="dm-message user">
+                        <div class="dm-bubble">INFO</div>
+                    </div>
+                    <div class="dm-message bot">
+                        <div class="dm-bubble">Hey ! 🙌 Je t'envoie ça tout de suite. Juste avant, tu peux me dire rapidement quel est ton business ? Ça m'aide à personnaliser mes conseils.</div>
+                    </div>
+                    <div class="dm-message user">
+                        <div class="dm-bubble">Je suis coach business, je fais 200K/an</div>
+                    </div>
+                    <div class="dm-message bot">
+                        <div class="dm-bubble">Parfait ! 💪 Voici le lien vers le guide : [LIEN]<br><br>Si tu veux qu'on en parle ensemble, bloque un créneau ici : [CALENDLY]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funnel Types -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>📈 Les 3 Types de Conversion Funnels</h2>
+                <p>Adapte ton approche selon la température du lead</p>
+            </div>
+
+            <div class="funnel-grid">
+                <div class="funnel-card">
+                    <h4>🔥 Funnel 1 : Direct Booking</h4>
+                    <p class="target">Pour : Leads chauds, prêts à acheter</p>
+                    <div class="funnel-flow">
+                        <div class="funnel-flow-step">Story Ad <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Profil <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">DM <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Qualification <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Calendly <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Close 🎯</div>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray);">Cycle court : 24-72h</p>
+                </div>
+
+                <div class="funnel-card">
+                    <h4>🌡️ Funnel 2 : Lead Magnet</h4>
+                    <p class="target">Pour : Leads tièdes, intéressés</p>
+                    <div class="funnel-flow">
+                        <div class="funnel-flow-step">Story Ad <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">DM <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Lead Magnet <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Email Sequence <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Landing Page <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Call 📞</div>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray);">Cycle moyen : 1-4 semaines</p>
+                </div>
+
+                <div class="funnel-card">
+                    <h4>❄️ Funnel 3 : Content Ecosystem</h4>
+                    <p class="target">Pour : Leads froids, à réchauffer</p>
+                    <div class="funnel-flow">
+                        <div class="funnel-flow-step">Reels viraux <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Follow <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Stories daily <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Engagement DM <span class="arrow">→</span></div>
+                        <div class="funnel-flow-step">Funnel 1 ou 2 ↗️</div>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray);">Cycle long : 1-3 mois</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>💡 Cas Concrets d'Application</h2>
+                <p>Des résultats réels avec la stratégie Profile Funnel</p>
+            </div>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-card-header">
+                        <h4>Coach Business High-Ticket</h4>
+                        <p>Offre à 5000€ • Cible entrepreneurs</p>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stat-grid">
+                            <div class="case-stat">
+                                <span class="number">500€</span>
+                                <span class="label">Budget ads/mois</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">50</span>
+                                <span class="label">DMs qualifiés</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">15</span>
+                                <span class="label">Calls bookés</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">3</span>
+                                <span class="label">Clients signés</span>
+                            </div>
+                        </div>
+                        <div class="case-roi">ROI : 3000% (15K€ de CA)</div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-header">
+                        <h4>Agence Marketing B2B</h4>
+                        <p>Retainer 2000€/mois • Cible PME</p>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stat-grid">
+                            <div class="case-stat">
+                                <span class="number">300€</span>
+                                <span class="label">Budget ads/mois</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">30</span>
+                                <span class="label">Leads (audit)</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">10</span>
+                                <span class="label">Calls bookés</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">2</span>
+                                <span class="label">Clients signés</span>
+                            </div>
+                        </div>
+                        <div class="case-roi">4000€/mois récurrent 💰</div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-header">
+                        <h4>Formateur / Infoproneur</h4>
+                        <p>Formation 997€ • Cible freelances</p>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-stat-grid">
+                            <div class="case-stat">
+                                <span class="number">200€</span>
+                                <span class="label">Budget ads/mois</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">200</span>
+                                <span class="label">Leads générés</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">50</span>
+                                <span class="label">Webinaire</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="number">5</span>
+                                <span class="label">Ventes</span>
+                            </div>
+                        </div>
+                        <div class="case-roi">CA : 4985€/mois 🚀</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="checklist">
+                <h3>✅ Checklist Étape 3</h3>
+                <div class="checklist-grid">
+                    <div class="checklist-section">
+                        <h4>Profil Optimisé</h4>
+                        <ul>
+                            <li>Photo de profil professionnelle</li>
+                            <li>Bio optimisée avec CTA</li>
+                            <li>Lien vers landing page Étape 2</li>
+                            <li>5-6 Highlights stratégiques</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-section">
+                        <h4>Content Strategy</h4>
+                        <ul>
+                            <li>Calendrier éditorial défini</li>
+                            <li>50% contenu TOFU planifié</li>
+                            <li>30% contenu MOFU planifié</li>
+                            <li>20% contenu BOFU planifié</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-section">
+                        <h4>Story Ads</h4>
+                        <ul>
+                            <li>3-5 créatives Story Ads tournées</li>
+                            <li>Campagne Meta Ads configurée</li>
+                            <li>Audiences définies</li>
+                            <li>Budget test : 150-300€</li>
+                        </ul>
+                    </div>
+                    <div class="checklist-section">
+                        <h4>Automatisation DM</h4>
+                        <ul>
+                            <li>ManyChat ou Inro configuré</li>
+                            <li>Flow nouveau follower créé</li>
+                            <li>Flow keyword trigger créé</li>
+                            <li>Qualification automatique active</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recap -->
+    <section class="section">
+        <div class="container">
+            <div class="recap-card">
+                <h3>🚀 Le Système Complet en 3 Étapes</h3>
+                <div class="recap-steps">
+                    <div class="recap-step">
+                        <h4>ÉTAPE 1</h4>
+                        <p>Tunnels ClickFunnels + Email Nurturing. Fondations solides, démarrage rapide.</p>
+                    </div>
+                    <div class="recap-step">
+                        <h4>ÉTAPE 2</h4>
+                        <p>Landing pages custom Full IA. Tracking server-side + automatisations avancées.</p>
+                    </div>
+                    <div class="recap-step">
+                        <h4>ÉTAPE 3</h4>
+                        <p>Profile Funnel Instagram. Story Ads + DM automatisés + qualification 24/7.</p>
+                    </div>
+                </div>
+                <p class="recap-formula">
+                    Landing Pages Custom + Profile Funnel Instagram = Machine d'acquisition imbattable 🔥
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Maxime Augiat</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.content-card, .funnel-card, .case-card, .dm-flow-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

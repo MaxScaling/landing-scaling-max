@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étape 1 : Bienvenue dans le Programme | Scaling MAX</title>
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="description" content="La méthode complète pour scaler ton business. Découvre le case study Neoabita : 150 leads qualifiés pour 3000€.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray: #555;
+            --gray-light: #e8e8e8;
+            --gray-bg: #f5f5f5;
+            --accent: #ff4d00;
+            --accent-dark: #e64500;
+            --success: #10b981;
+            --blue: #3b82f6;
+            --blue-bg: #eff6ff;
+            --yellow-bg: #fefce8;
+            --green-bg: #f0fdf4;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* Header */
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            background: rgba(250,250,250,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo {
+            font-family: var(--font-body);
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .logo .separator {
+            color: var(--accent);
+            font-weight: 300;
+            margin: 0 2px;
+        }
+
+        .logo .max {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .logo-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid var(--gray-light);
+        }
+
+        .header-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Step Navigation */
+        .step-nav {
+            background: var(--black);
+            padding: 0;
+            overflow-x: auto;
+        }
+
+        .step-nav-inner {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .step-nav a {
+            flex: 1;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .step-nav a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .step-nav a.active {
+            color: var(--white);
+            border-bottom-color: var(--accent);
+            background: rgba(255,77,0,0.1);
+        }
+
+        .step-number {
+            background: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .step-nav a.active .step-number {
+            background: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--blue-bg) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            max-width: 140px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: var(--gray-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Case Study Card */
+        .case-study-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-light);
+        }
+
+        .case-study-header {
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .case-study-header h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .case-study-header p {
+            opacity: 0.8;
+        }
+
+        .case-study-body {
+            padding: 40px;
+        }
+
+        .problem-list {
+            list-style: none;
+            display: grid;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: #fef2f2;
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .problem-list li::before {
+            content: "❌";
+            flex-shrink: 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 24px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-light);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-phase {
+            display: inline-block;
+            background: var(--yellow-bg);
+            color: #92400e;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .timeline-list {
+            list-style: none;
+        }
+
+        .timeline-list li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .timeline-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .result-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-light);
+        }
+
+        .result-card .number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .result-card .label {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* ROI Highlight */
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .roi-highlight h3 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+
+        .roi-highlight p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Keys Grid */
+        .keys-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .key-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-light);
+        }
+
+        .key-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .key-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .key-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .key-card p {
+            color: var(--gray);
+        }
+
+        /* Callout */
+        .callout {
+            background: var(--blue-bg);
+            border: 2px solid var(--blue);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+
+        .callout-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .callout h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .callout p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .callout-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: var(--white);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .callout-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59,130,246,0.3);
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .tool-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-light);
+        }
+
+        .tool-card-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tool-card-header .icon {
+            font-size: 1.5rem;
+        }
+
+        .tool-card-header h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .tool-card-body {
+            padding: 24px;
+        }
+
+        .tool-card-body p {
+            color: var(--gray);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tool-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--green-bg);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #86efac;
+        }
+
+        .checklist h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-stats {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .step-nav a {
+                padding: 16px;
+                font-size: 0.8rem;
+            }
+
+            .step-nav a span:not(.step-number) {
+                display: none;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -23px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .case-study-visual {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo-container">
+                    <img src="photo-max.jpg" alt="Max" class="logo-avatar">
+                    <span class="logo">Scaling<span class="separator">|</span><span class="max">MAX</span></span>
+                </a>
+                <a href="/" class="header-cta">← Retour</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Step Navigation -->
+    <nav class="step-nav">
+        <div class="step-nav-inner">
+            <a href="/etape-1" class="active">
+                <span class="step-number">ÉTAPE 1</span>
+                <span>Bienvenue & Case Study</span>
+            </a>
+            <a href="/etape-2">
+                <span class="step-number">ÉTAPE 2</span>
+                <span>Tunnels Custom Full IA</span>
+            </a>
+            <a href="/etape-3">
+                <span class="step-number">ÉTAPE 3</span>
+                <span>Profile Funnel Instagram</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">🚀 ÉTAPE 1</span>
+            <h1>Bienvenue dans le Programme <em>Scaling MAX</em></h1>
+            <p class="hero-subtitle">
+                La méthode complète qui m'a permis de scaler ma startup de 0 à 15M€ en 3 ans. 
+                Découvre le case study Neoabita : <strong>150 leads qualifiés pour 3000€</strong>.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">12M€</span>
+                    <span class="stat-label">CA généré en 3 mois</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20€</span>
+                    <span class="stat-label">Par lead qualifié</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">300€</span>
+                    <span class="stat-label">Par prospect prêt à signer</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">83 233%</span>
+                    <span class="stat-label">ROI sur Neoabita</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎯 Case Study : Neoabita</h2>
+                <p>Le défi le plus difficile qui soit : villas ultra haut de gamme de 1 à 20M€</p>
+            </div>
+
+            <!-- Case Study Visual -->
+            <div class="case-study-visual" style="display: grid; grid-template-columns: 1fr 2fr; gap: 32px; margin-bottom: 40px; align-items: stretch;">
+                <!-- CEO Card -->
+                <div style="background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid var(--gray-light);">
+                    <img src="/remi-agrain.png" alt="Rémi Agrain - CEO Neoabita" style="width: 100%; height: 200px; object-fit: cover; object-position: top;">
+                    <div style="padding: 20px; text-align: center;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Rémi Agrain</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; margin: 0;">CEO & Fondateur Neoabita</p>
+                    </div>
+                </div>
+                <!-- Villa Image -->
+                <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <img src="/neoabita-villa.jpg" alt="Villa haut de gamme Neoabita" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Neoabita</h3>
+                    <p>Constructeur de villas d'exception • Rhône-Alpes</p>
+                </div>
+                <div class="case-study-body">
+                    <h4 style="margin-bottom: 20px;">Pourquoi c'est le cas le PLUS difficile ?</h4>
+                    <ul class="problem-list">
+                        <li><strong>Ultra high-ticket</strong> : Projets de 500K€ à 20M€ (cycle 3-5 ans)</li>
+                        <li><strong>Marché ultra-niché</strong> : Construction haut de gamme passive/écologique</li>
+                        <li><strong>Cible rare</strong> : Clients avec &gt;1M€ de budget disponible</li>
+                        <li><strong>Décision complexe</strong> : Achat émotionnel + rationnel + financier</li>
+                        <li><strong>Concurrence féroce</strong> : Constructeurs, architectes, promoteurs...</li>
+                    </ul>
+
+                    <div class="callout" style="background: var(--green-bg); border-color: var(--success);">
+                        <p style="margin: 0; font-weight: 600; color: var(--black);">
+                            💡 Si on arrive à générer des leads ultra-qualifiés à 20€ pour des projets à 1-20M€, 
+                            imaginez ce qu'on peut faire pour votre business.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Timeline -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>💠 La Transformation en 4 Phases</h2>
+                <p>6 mois pour construire une machine d'acquisition prévisible</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-phase">PHASE 1 • 4 semaines</span>
+                    <h4>Repositionnement Stratégique Radical</h4>
+                    <p>"Maisons passives écologiques" → "Villas ultra haut de gamme 1-20M€, max 20 projets/an"</p>
+                    <ul class="timeline-list">
+                        <li>La rareté créée du désir (20 projets max)</li>
+                        <li>Le prix devient un signal de qualité</li>
+                        <li>L'exclusivité attire l'excellence</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-phase">PHASE 2 • 4 semaines</span>
+                    <h4>Digitalisation & Infrastructure</h4>
+                    <p>Modernisation complète de la stack technique</p>
+                    <ul class="timeline-list">
+                        <li>CRM structuré (Notion organisé)</li>
+                        <li>Tracking server-side avec Stape.io</li>
+                        <li>iClosed pour capturer 100% des leads</li>
+                        <li>Meta Pixel + Conversions API optimisés</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-phase">PHASE 3 • 4 semaines</span>
+                    <h4>Création du Tunnel de Vente</h4>
+                    <p>Architecture en 3 étapes ultra-optimisée</p>
+                    <ul class="timeline-list">
+                        <li>Lead Magnet Premium : Guide Architecture 2026 (40 pages)</li>
+                        <li>Upsell Irrésistible : Plans 3D OFFERTS (valeur 10K€)</li>
+                        <li>Nurturing Email automatisé et segmenté</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-phase">PHASE 4 • En continu</span>
+                    <h4>Media Buying Meta Ads</h4>
+                    <p>Lancement et optimisation des campagnes</p>
+                    <ul class="timeline-list">
+                        <li>Budget test : 3 000€ seulement</li>
+                        <li>Audiences Custom + Lookalike 1%</li>
+                        <li>Créatives statiques ultra-efficaces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>📊 Les Résultats Concrets</h2>
+                <p>Budget investi : 3 000€</p>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <span class="number">3 500</span>
+                    <span class="label">Leads email capturés</span>
+                </div>
+                <div class="result-card">
+                    <span class="number">150</span>
+                    <span class="label">Leads qualifiés</span>
+                </div>
+                <div class="result-card">
+                    <span class="number">70</span>
+                    <span class="label">Appels reçus</span>
+                </div>
+                <div class="result-card">
+                    <span class="number">10</span>
+                    <span class="label">Prospects ultra-qualifiés (1M€+)</span>
+                </div>
+            </div>
+
+            <div class="roi-highlight">
+                <h3>ROI : 83 233%</h3>
+                <p>Chaque 1€ investi rapporte 832€ de marge brute</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 Keys Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔑 Les 7 Clés du Succès</h2>
+                <p>Ce qui a fait la différence pour Neoabita</p>
+            </div>
+
+            <div class="keys-grid">
+                <div class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-number">1</span>
+                        <h4>Repositionnement radical</h4>
+                    </div>
+                    <p>"Villas 1-20M€, max 20 projets/an" = Les prospects &lt;1M€ ne cliquent même pas sur la pub.</p>
+                </div>
+
+                <div class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-number">2</span>
+                        <h4>Lead Magnet premium</h4>
+                    </div>
+                    <p>Guide de 40 pages qui positionne immédiatement l'expertise. Valeur perçue énorme.</p>
+                </div>
+
+                <div class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-number">3</span>
+                        <h4>Upsell irrésistible</h4>
+                    </div>
+                    <p>Plans 3D OFFERTS (valeur 10K€) = Personne ne refuse. Qualification sans friction.</p>
+                </div>
+
+                <div class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-number">4</span>
+                        <h4>Tracking précis</h4>
+                    </div>
+                    <p>iClosed + Stape.io = Récupère 40% de conversions invisibles. Algorithme optimisé.</p>
+                </div>
+
+                <div class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-number">5</span>
+                        <h4>Nurturing automatisé</h4>
+                    </div>
+                    <p>Séquences email qui éduquent et convertissent. Fonctionne 24/7 sans intervention.</p>
+                </div>
+
+                <div class="key-card">
+                    <div class="key-card-header">
+                        <span class="key-number">6</span>
+                        <h4>Coût d'acquisition dérisoire</h4>
+                    </div>
+                    <p>20€ par lead qualifié en ultra high-ticket = ROI massif, scalable sans limite.</p>
+                </div>
+
+                <div class="key-card" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto;">
+                    <div class="key-card-header">
+                        <span class="key-number">7</span>
+                        <h4>Système complet</h4>
+                    </div>
+                    <p>Pas juste "de la pub" : Repositionnement → Digitalisation → Tunnel → Tracking → Nurturing → Scale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>🛠️ Les Outils à Ouvrir</h2>
+                <p>La même stack que Neoabita pour obtenir les mêmes résultats</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <span class="icon">🔧</span>
+                        <h4>ClickFunnels</h4>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>LA référence pour créer des tunnels de conversion. Landing pages + lead magnets + upsells.</p>
+                        <a href="https://www.clickfunnels.com/signup-flow?aff=24af40e0bc6e97d19439655739786eabecca0564b01f6e53dab7ae0d5f8eaffa" class="tool-link" target="_blank">Démarrer gratuitement →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <span class="icon">📧</span>
+                        <h4>Brevo</h4>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Email automation avec le meilleur rapport qualité/prix. Séquences nurturing automatisées.</p>
+                        <a href="https://get.brevo.com/80qaans2mzo4" class="tool-link" target="_blank">Créer mon compte →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <span class="icon">📊</span>
+                        <h4>Stape.io</h4>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Tracking server-side crucial. Contourne iOS 14, récupère 40% de conversions perdues.</p>
+                        <a href="https://stape.io?pt=wqmkifsl&rs=site&rr=eu" class="tool-link" target="_blank">Configurer le tracking →</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-card-header">
+                        <span class="icon">🎯</span>
+                        <h4>iClosed</h4>
+                    </div>
+                    <div class="tool-card-body">
+                        <p>Ne rate aucun lead. Capture même les formulaires incomplets. Enrichissement données.</p>
+                        <a href="https://iclosed.io/fr?fpr=maxime47" class="tool-link" target="_blank">Activer iClosed →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning: Use ONLY these links -->
+            <div style="margin-top: 32px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 20px; text-align: center;">
+                <p style="margin: 0; font-weight: 600; color: #92400e;">
+                    ⚠️ <strong>IMPORTANT :</strong> Utilise <strong>UNIQUEMENT</strong> les liens ci-dessus pour ouvrir tes comptes. 
+                    Ces liens sont pré-configurés et me permettent de t'accompagner au mieux sur chaque outil.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Already Have Funnel -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="callout" style="text-align: center; background: var(--yellow-bg); border-color: #f59e0b;">
+                <div class="callout-icon">🔄</div>
+                <h3>Tu as déjà un tunnel de vente ?</h3>
+                <p>
+                    Pas besoin de tout recommencer ! On peut <strong>transformer ton tunnel "moche" en un site complet ultra-design</strong> en quelques clics. 
+                    Que tu sois sur ClickFunnels, Systeme.io, ou autre — on optimise l'existant pour maximiser tes conversions.
+                </p>
+                <p style="margin-top: 12px; font-size: 0.9rem;">
+                    💬 Envoie-moi ton lien sur Discord, je te fais un audit gratuit.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps Callout -->
+    <section class="section">
+        <div class="container">
+            <div class="callout" style="text-align: center;">
+                <div class="callout-icon">🚀</div>
+                <h3>Prêt à passer au niveau supérieur ?</h3>
+                <p>
+                    L'Étape 1 avec ClickFunnels est parfaite pour démarrer vite <strong>en toute autonomie</strong>. 
+                    Pour le tracking Stape.io, tu trouves facilement des freelances sur Fiverr pour te le configurer.
+                </p>
+                <a href="/etape-2" class="callout-cta" style="margin-top: 20px;">
+                    Découvrir l'Étape 2 : Tunnels Custom Full IA →
+                </a>
+                <p style="margin-top: 24px; padding: 16px; background: rgba(255,77,0,0.1); border-radius: 8px; text-align: left;">
+                    ⚠️ <strong>L'Étape 2 (Custom Full IA) nécessite un intégrateur spécifique</strong> capable de coder du custom. 
+                    C'est plus puissant mais plus complexe. J'ai des contacts pour le tracking custom avancé, mais c'est un investissement. 
+                    <strong>Commence par l'Étape 1</strong> pour valider ton système avant d'investir.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section class="section">
+        <div class="container">
+            <div class="checklist">
+                <h3>✅ À faire cette semaine</h3>
+                <ul>
+                    <li>Bloquer 2h pour le premier atelier stratégique</li>
+                    <li>Rassembler vos données clients (liste, CA par client)</li>
+                    <li>Préparer 5-10 témoignages clients (texte + photos/vidéos)</li>
+                    <li>Rassembler le maximum de contenus (Photos, Videos…)</li>
+                    <li>Définir votre budget publicitaire (min 2K€/mois recommandé)</li>
+                    <li>Ouvrir les comptes : Brevo, Stape.io, iClosed, Meta Business Manager</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Maxime Augiat</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item, .result-card, .key-card, .tool-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

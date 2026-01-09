@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étape 2 : Tunnels Custom Full IA | Scaling MAX</title>
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="description" content="Génère des landing pages 100% custom avec l'IA. Déploie sur GitHub + Vercel gratuitement. Le niveau supérieur.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray: #555;
+            --gray-light: #e8e8e8;
+            --gray-bg: #f5f5f5;
+            --accent: #ff4d00;
+            --accent-dark: #e64500;
+            --success: #10b981;
+            --blue: #3b82f6;
+            --blue-bg: #eff6ff;
+            --purple: #8b5cf6;
+            --purple-bg: #f5f3ff;
+            --yellow-bg: #fefce8;
+            --green-bg: #f0fdf4;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* Header */
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            background: rgba(250,250,250,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo {
+            font-family: var(--font-body);
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .logo .separator {
+            color: var(--accent);
+            font-weight: 300;
+            margin: 0 2px;
+        }
+
+        .logo .max {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .logo-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid var(--gray-light);
+        }
+
+        .header-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Step Navigation */
+        .step-nav {
+            background: var(--black);
+            padding: 0;
+            overflow-x: auto;
+        }
+
+        .step-nav-inner {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .step-nav a {
+            flex: 1;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .step-nav a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .step-nav a.active {
+            color: var(--white);
+            border-bottom-color: var(--purple);
+            background: rgba(139,92,246,0.1);
+        }
+
+        .step-number {
+            background: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .step-nav a.active .step-number {
+            background: var(--purple);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--purple-bg) 0%, var(--white) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(139,92,246,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255,77,0,0.05) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-2%, -2%) rotate(2deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--purple);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--purple);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .hero-feature-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: var(--gray-bg);
+        }
+
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-dark .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Phase Cards */
+        .phase-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+
+        .phase-header {
+            background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%);
+            color: var(--white);
+            padding: 32px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phase-number {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .phase-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .phase-header p {
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .phase-body {
+            padding: 40px;
+        }
+
+        .phase-body h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phase-body p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #d4d4d4;
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        .code-block .keyword {
+            color: #569cd6;
+        }
+
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        /* Tools Grid */
+        .tools-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .tool-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray-bg);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tool-tag.highlight {
+            background: var(--purple-bg);
+            color: var(--purple);
+        }
+
+        /* Workflow Diagram */
+        .workflow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+
+        .workflow-step {
+            background: var(--white);
+            padding: 20px 28px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid var(--gray-light);
+        }
+
+        .workflow-step.active {
+            border-color: var(--purple);
+            background: var(--purple-bg);
+        }
+
+        .workflow-step .icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .workflow-step span {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .workflow-arrow {
+            font-size: 1.5rem;
+            color: var(--gray);
+        }
+
+        /* Step List */
+        .step-list {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .step-list li {
+            position: relative;
+            padding: 20px 20px 20px 70px;
+            margin-bottom: 16px;
+            background: var(--gray-bg);
+            border-radius: 12px;
+            counter-increment: step;
+        }
+
+        .step-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: var(--purple);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .step-list li strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .step-list li span {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-light);
+        }
+
+        .feature-card .icon {
+            width: 56px;
+            height: 56px;
+            background: var(--purple-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: var(--black);
+            color: var(--white);
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .highlight-col {
+            background: var(--purple-bg);
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--green-bg);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #86efac;
+        }
+
+        .checklist h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        /* Callout */
+        .callout {
+            background: var(--purple-bg);
+            border: 2px solid var(--purple);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .callout-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .callout h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .callout p {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .callout-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--purple);
+            color: var(--white);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .callout-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139,92,246,0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .step-nav a {
+                padding: 16px;
+                font-size: 0.8rem;
+            }
+
+            .step-nav a span:not(.step-number) {
+                display: none;
+            }
+
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .workflow {
+                flex-direction: column;
+            }
+
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo-container">
+                    <img src="photo-max.jpg" alt="Max" class="logo-avatar">
+                    <span class="logo">Scaling<span class="separator">|</span><span class="max">MAX</span></span>
+                </a>
+                <a href="/" class="header-cta">← Retour</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Step Navigation -->
+    <nav class="step-nav">
+        <div class="step-nav-inner">
+            <a href="/etape-1">
+                <span class="step-number">ÉTAPE 1</span>
+                <span>Bienvenue & Case Study</span>
+            </a>
+            <a href="/etape-2" class="active">
+                <span class="step-number">ÉTAPE 2</span>
+                <span>Tunnels Custom Full IA</span>
+            </a>
+            <a href="/etape-3">
+                <span class="step-number">ÉTAPE 3</span>
+                <span>Profile Funnel Instagram</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Warning Banner -->
+    <section style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 20px 0; border-bottom: 2px solid #f59e0b;">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; text-align: center;">
+                <span style="font-size: 1.5rem;">⚠️</span>
+                <p style="margin: 0; font-weight: 600; color: #92400e;">
+                    <strong>Attention :</strong> Cette étape nécessite un intégrateur/développeur capable de coder du custom. 
+                    Si tu débutes, <a href="/etape-1" style="color: #d97706; text-decoration: underline;">commence par l'Étape 1</a> pour être 100% autonome.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">🚀 ÉTAPE 2 • NIVEAU SUPÉRIEUR</span>
+                <h1>Tunnels Custom <em>Full IA</em></h1>
+                <p class="hero-subtitle">
+                    Génère des landing pages 100% custom avec l'IA. 
+                    Déploie sur GitHub + Vercel <strong>gratuitement</strong>. 
+                    Contrôle total, performances maximales.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">🤖</span>
+                        <span>Génération IA (Claude, Cursor)</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">⚡</span>
+                        <span>Déploiement instantané</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">💰</span>
+                        <span>0€ d'abonnement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Custom -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>⚡ Pourquoi passer au Custom ?</h2>
+                <p>Les templates sont génériques. Tes concurrents utilisent les mêmes.</p>
+            </div>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>ClickFunnels (Étape 1)</th>
+                            <th class="highlight-col">Custom Full IA (Étape 2)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Design</strong></td>
+                            <td>Templates prédéfinis</td>
+                            <td class="highlight-col">100% personnalisé</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coût mensuel</strong></td>
+                            <td>97$/mois minimum</td>
+                            <td class="highlight-col">0€ (Vercel gratuit)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Performance</strong></td>
+                            <td>Standard</td>
+                            <td class="highlight-col">Ultra-rapide (CDN mondial)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contrôle</strong></td>
+                            <td>Limité aux options</td>
+                            <td class="highlight-col">Total (code source)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Différenciation</strong></td>
+                            <td>Ressemble aux autres</td>
+                            <td class="highlight-col">Unique, mémorable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="phase-card">
+                <div class="phase-header">
+                    <span class="phase-number">1</span>
+                    <div>
+                        <h3>Génération de Landing Pages avec l'IA</h3>
+                        <p>Créer en quelques heures ce qui prenait des semaines</p>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <h4>🛠️ Les outils que nous utilisons</h4>
+                    <div class="tools-row">
+                        <span class="tool-tag highlight">🤖 Claude (Anthropic)</span>
+                        <span class="tool-tag">🎨 v0.dev (Vercel)</span>
+                        <span class="tool-tag">💅 Tailwind CSS</span>
+                    </div>
+
+                    <h4 style="margin-top: 32px;">📐 Structure type d'une landing haute conversion</h4>
+                    <ol class="step-list">
+                        <li>
+                            <strong>Hero Section</strong>
+                            <span>Titre accrocheur + sous-titre + CTA principal</span>
+                        </li>
+                        <li>
+                            <strong>Social Proof</strong>
+                            <span>Logos clients, chiffres clés, témoignages</span>
+                        </li>
+                        <li>
+                            <strong>Problème/Agitation</strong>
+                            <span>Identifier les douleurs de ta cible</span>
+                        </li>
+                        <li>
+                            <strong>Solution</strong>
+                            <span>Présenter ton offre comme LA solution</span>
+                        </li>
+                        <li>
+                            <strong>Bénéfices</strong>
+                            <span>Liste des avantages (pas des features)</span>
+                        </li>
+                        <li>
+                            <strong>Cas d'étude</strong>
+                            <span>Résultats concrets avec chiffres</span>
+                        </li>
+                        <li>
+                            <strong>FAQ</strong>
+                            <span>Anticiper les objections</span>
+                        </li>
+                        <li>
+                            <strong>CTA Final</strong>
+                            <span>Urgence + rareté + action claire</span>
+                        </li>
+                    </ol>
+
+                    <h4 style="margin-top: 32px;">💬 Exemple de prompt pour Claude</h4>
+                    <div class="code-block">
+<pre><span class="comment">// Prompt type pour générer une landing page</span>
+
+Génère-moi une landing page Next.js 14 avec Tailwind CSS 
+pour <span class="string">[TON OFFRE]</span>.
+
+<span class="keyword">Contexte :</span>
+- Cible : <span class="string">[PERSONA]</span>
+- Proposition de valeur : <span class="string">[USP]</span>
+- CTA principal : <span class="string">[ACTION]</span>
+
+<span class="keyword">Structure souhaitée :</span>
+1. Hero avec gradient premium
+2. Section problème avec 3 pain points
+3. Section solution avec icons
+4. Témoignages en carrousel
+5. Pricing avec mise en avant
+6. FAQ accordion
+7. Footer avec CTA final
+
+<span class="keyword">Style :</span> Moderne, premium, minimaliste, 
+inspiré Apple/Stripe</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2 -->
+    <section class="section">
+        <div class="container">
+            <div class="phase-card">
+                <div class="phase-header" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
+                    <span class="phase-number">2</span>
+                    <div>
+                        <h3>Nurturing WhatsApp + Email</h3>
+                        <p>Combiner les deux canaux pour maximiser les conversions</p>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <!-- Brevo Reminder -->
+                    <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                        <p style="margin: 0; font-weight: 600; color: #92400e;">
+                            📧 <strong>IMPORTANT :</strong> Si tu n'as pas encore créé ton compte <strong>Brevo</strong>, fais-le maintenant ! 
+                            C'est l'outil qu'on utilise pour toutes les séquences email nurturing. 
+                            <a href="https://get.brevo.com/80qaans2mzo4" target="_blank" style="color: #d97706; text-decoration: underline;">→ Créer mon compte Brevo</a>
+                        </p>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="icon">📧</div>
+                            <h4>Email</h4>
+                            <p>Taux d'ouverture 20-30%. Contenu long possible. Automatisation facile.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon" style="background: #dcfce7;">📱</div>
+                            <h4>WhatsApp</h4>
+                            <p>Taux d'ouverture 90%+. Lecture quasi-instantanée. Sentiment de proximité.</p>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 32px;">📱 Exemple de séquence WhatsApp</h4>
+                    <div class="code-block" style="background: #075e54;">
+<pre><span class="comment">// Jour 0 (immédiat)</span>
+Salut <span class="string">{Prénom}</span> ! 👋 
+Merci d'avoir téléchargé le guide. 
+Une question rapide : c'est quoi ton plus gros 
+challenge en ce moment ?
+
+<span class="comment">// Jour 2</span>
+Hey <span class="string">{Prénom}</span> ! T'as eu le temps de 
+regarder le guide ? Si t'as des questions, 
+hésite pas - je réponds perso ici 🙂
+
+<span class="comment">// Jour 5</span>
+Petite question : Si tu pouvais résoudre 
+UN seul problème cette semaine, ce serait lequel ?
+
+<span class="comment">// Jour 7</span>
+J'ai aidé <span class="string">{Client}</span> à obtenir <span class="string">{Résultat}</span>.
+Si tu veux qu'on regarde ensemble, bloque 15 min :
+<span class="string">[Lien Calendly]</span></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="phase-card">
+                <div class="phase-header" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <span class="phase-number">3</span>
+                    <div>
+                        <h3>Intégration GitHub + Vercel</h3>
+                        <p>Déploiement automatique, gratuit, ultra-performant</p>
+                    </div>
+                </div>
+                <div class="phase-body">
+                    <div class="workflow">
+                        <div class="workflow-step">
+                            <div class="icon">💻</div>
+                            <span>Code local</span>
+                        </div>
+                        <span class="workflow-arrow">→</span>
+                        <div class="workflow-step">
+                            <div class="icon">📦</div>
+                            <span>git push</span>
+                        </div>
+                        <span class="workflow-arrow">→</span>
+                        <div class="workflow-step active">
+                            <div class="icon">🚀</div>
+                            <span>Vercel déploie</span>
+                        </div>
+                        <span class="workflow-arrow">→</span>
+                        <div class="workflow-step">
+                            <div class="icon">🌍</div>
+                            <span>En ligne !</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="icon">📁</div>
+                            <h4>GitHub</h4>
+                            <p>Versioning de ton code. Backup automatique. Collaboration possible. Gratuit.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="icon" style="background: var(--black); color: white;">▲</div>
+                            <h4>Vercel</h4>
+                            <p>Déploiement auto à chaque push. CDN mondial. SSL gratuit. Preview branches.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 4 & 5 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>📊 Tracking & Automatisation</h2>
+                <p>Server-side tracking + workflows N8N</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h4>Tracking Server-Side</h4>
+                    <p>Contourne iOS 14 et les AdBlockers. Récupère 40% de conversions perdues avec Stape.io.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔄</div>
+                    <h4>N8N Workflows</h4>
+                    <p>Nouveau lead → Brevo + Notion CRM + Slack + WhatsApp + Meta CAPI. Tout automatisé.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h4>Scoring Automatique</h4>
+                    <p>+20 pts email pro, +50 pts budget &gt;5K€, +40 pts timing &lt;3 mois. Qualification auto.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📈</div>
+                    <h4>Dashboard Unifié</h4>
+                    <p>Toutes tes données au même endroit. Métriques clés visibles en temps réel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Already Have Funnel -->
+    <section class="section">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, var(--purple-bg) 0%, #ede9fe 100%); border: 2px solid var(--purple); border-radius: 20px; padding: 40px; text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 16px;">🔄</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 16px;">Tu as déjà un tunnel de vente ?</h3>
+                <p style="color: var(--gray); max-width: 600px; margin: 0 auto 20px;">
+                    Pas besoin de tout recoder ! On peut <strong>transformer ton tunnel "moche" en un site custom ultra-design</strong> 
+                    en reprenant ta structure existante. Tes textes, tes offres, ton positionnement — on upgrade juste le design et les perfs.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--purple); font-weight: 600;">
+                    💬 Envoie-moi ton lien sur Discord pour un audit gratuit
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Custom Info -->
+    <section class="section section-alt">
+        <div class="container">
+            <div style="background: var(--white); border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 4px solid var(--accent);">
+                <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+                    <div style="font-size: 2rem;">🎯</div>
+                    <div style="flex: 1; min-width: 280px;">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 12px;">À propos du Tracking Custom</h4>
+                        <p style="color: var(--gray); margin-bottom: 16px;">
+                            Le tracking server-side avec Stape.io est <strong>crucial pour tes performances</strong>. 
+                            Pour l'Étape 1 (ClickFunnels), tu trouves facilement des freelances sur Fiverr pour te le configurer (50-150€).
+                        </p>
+                        <p style="color: var(--gray); margin-bottom: 16px;">
+                            Pour le <strong>tracking custom avancé</strong> (Next.js + Vercel + intégrations complexes), 
+                            <strong>j'ai des contacts de confiance</strong> que je peux te recommander. Mais c'est un investissement plus conséquent.
+                        </p>
+                        <p style="background: var(--yellow-bg); padding: 12px 16px; border-radius: 8px; font-weight: 600; color: #92400e;">
+                            💡 <strong>Ma recommandation :</strong> Valide ton système avec l'Étape 1 avant d'investir dans le custom. 
+                            Une fois que tu as des résultats, on passe au niveau supérieur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="checklist">
+                <h3>✅ Checklist Étape 2</h3>
+                <ul>
+                    <li>Compte GitHub créé</li>
+                    <li>Compte Vercel connecté à GitHub</li>
+                    <li>Compte Brevo créé (si pas encore fait)</li>
+                    <li>Nom de domaine acheté (OVH, Namecheap...)</li>
+                    <li>DNS configuré et propagé</li>
+                    <li>Stape.io container créé</li>
+                    <li>N8N/Make compte créé</li>
+                    <li>Landing page principale codée et déployée</li>
+                    <li>Séquence email 7-14 emails</li>
+                    <li><strong>Séquence nurturing WhatsApp</strong></li>
+                    <li>Tracking server-side fonctionnel</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Step Callout -->
+    <section class="section">
+        <div class="container">
+            <div class="callout">
+                <div class="callout-icon">📱</div>
+                <h3>Prêt pour le niveau ultime ?</h3>
+                <p>
+                    Tu as maintenant des tunnels custom ultra-performants. 
+                    Il est temps de transformer ton profil Instagram en machine à leads 24/7.
+                </p>
+                <a href="/etape-3" class="callout-cta">
+                    Découvrir l'Étape 3 : Profile Funnel Instagram →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Maxime Augiat</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.phase-card, .feature-card, .workflow-step').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
