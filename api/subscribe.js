@@ -1,8 +1,4 @@
-// api/subscribe.js - Vercel Serverless Function
-// Inscription Brevo pour Scaling MAX (listId: 6)
-
 export default async function handler(req, res) {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -21,8 +17,25 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Email requis' });
   }
 
-  // Liste Scaling MAX = 6
-  const listId = 6;
+  // Formater le numéro de téléphone en format international (si présent)
+  let formattedPhone = '';
+  if (phone) {
+    let cleaned = phone.replace(/[\s.\-\(\)]/g, '');
+    
+    if (cleaned.startsWith('+33')) {
+      formattedPhone = cleaned;
+    } else if (cleaned.startsWith('0033')) {
+      formattedPhone = '+33' + cleaned.substring(4);
+    } else if (cleaned.startsWith('33') && cleaned.length === 11) {
+      formattedPhone = '+' + cleaned;
+    } else if (cleaned.startsWith('0') && cleaned.length === 10) {
+      formattedPhone = '+33' + cleaned.substring(1);
+    } else if (cleaned.length === 9 && !cleaned.startsWith('0')) {
+      formattedPhone = '+33' + cleaned;
+    } else if (cleaned.length > 0) {
+      formattedPhone = cleaned.startsWith('+') ? cleaned : '+' + cleaned;
+    }
+  }
 
   try {
     const response = await fetch('https://api.brevo.com/v3/contacts', {
@@ -36,10 +49,10 @@ export default async function handler(req, res) {
         email: email,
         attributes: {
           FIRSTNAME: firstName || '',
-          SMS: phone || '',
-          SOURCE: source || 'scaling-max-landing'
+          SMS: formattedPhone,
+          SOURCE: source || 'scalingmax-landing'
         },
-        listIds: [listId],
+        listIds: [6],
         updateEnabled: true
       })
     });
@@ -48,7 +61,7 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       if (data.code === 'duplicate_parameter') {
-        return res.status(200).json({ success: true, message: 'Contact déjà existant' });
+        return res.status(200).json({ success: true, message: 'Contact existant' });
       }
       console.error('Brevo error:', data);
       return res.status(response.status).json({ error: data.message || 'Erreur Brevo' });
