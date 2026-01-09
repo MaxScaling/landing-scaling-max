@@ -6,7 +6,7 @@
     <title>Étape 1 : Bienvenue dans le Programme | Scaling MAX</title>
     
     <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="description" content="La méthode complète pour scaler ton business. Découvre le case study Neoabita : 150 leads qualifiés pour 3000€.">
+    <meta name="description" content="La méthode complète pour scaler ton business. Découvre le case study Neoabita : 12M€ de CA pour 3000€ investis.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,7 +218,15 @@
             font-size: 1.2rem;
             color: var(--gray);
             max-width: 700px;
+            margin: 0 auto 16px;
+        }
+
+        .hero-casestudy {
+            font-size: 1rem;
+            color: var(--gray);
+            max-width: 700px;
             margin: 0 auto 40px;
+            opacity: 0.85;
         }
 
         .hero-stats {
@@ -669,6 +677,93 @@
             color: var(--accent);
         }
 
+        /* Sticky Discord */
+        .sticky-discord {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #5865F2;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .sticky-discord:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(88, 101, 242, 0.5);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: var(--black);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Notion Link */
+        .notion-link-bar {
+            background: var(--gray-bg);
+            padding: 12px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .notion-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .notion-link:hover {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .notion-link svg {
+            flex-shrink: 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -705,6 +800,20 @@
             .case-study-visual {
                 grid-template-columns: 1fr !important;
             }
+
+            .sticky-discord {
+                bottom: 16px;
+                right: 16px;
+                padding: 12px 16px;
+                font-size: 0.85rem;
+            }
+
+            .back-to-top {
+                bottom: 16px;
+                left: 16px;
+                width: 44px;
+                height: 44px;
+            }
         }
 
         /* Animations */
@@ -738,7 +847,7 @@
                     <img src="photo-max.jpg" alt="Max" class="logo-avatar">
                     <span class="logo">Scaling<span class="separator">|</span><span class="max">MAX</span></span>
                 </a>
-                <a href="/" class="header-cta">← Retour</a>
+                <a href="https://app.iclosed.io/e/maximeaugiat/accompagnement-1-1" target="_blank" class="header-cta">🚀 Être coaché par Maxime</a>
             </div>
         </div>
     </header>
@@ -746,20 +855,31 @@
     <!-- Step Navigation -->
     <nav class="step-nav">
         <div class="step-nav-inner">
-            <a href="/etape-1" class="active">
+            <a href="/etape-1.html" class="active">
                 <span class="step-number">ÉTAPE 1</span>
                 <span>Bienvenue & Case Study</span>
             </a>
-            <a href="/etape-2">
+            <a href="/etape-2.html">
                 <span class="step-number">ÉTAPE 2</span>
                 <span>Tunnels Custom Full IA</span>
             </a>
-            <a href="/etape-3">
+            <a href="/etape-3.html">
                 <span class="step-number">ÉTAPE 3</span>
                 <span>Profile Funnel Instagram</span>
             </a>
         </div>
     </nav>
+
+    <!-- Notion Link -->
+    <div class="notion-link-bar">
+        <a href="https://batchr.notion.site/ETAPE-1-Bienvenue-dans-le-Programme-Scaling-MAX-2b7472bfeba780b4a2d3c48d07e3c24c" target="_blank" class="notion-link">
+            <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553 -6.413 6.017 -6.8z" fill="#ffffff"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#000000"/>
+            </svg>
+            Accéder au Notion complet
+        </a>
+    </div>
 
     <!-- Hero -->
     <section class="hero">
@@ -767,8 +887,10 @@
             <span class="hero-badge">🚀 ÉTAPE 1</span>
             <h1>Bienvenue dans le Programme <em>Scaling MAX</em></h1>
             <p class="hero-subtitle">
-                La méthode complète qui m'a permis de scaler ma startup de 0 à 15M€ en 3 ans. 
-                Découvre le case study Neoabita : <strong>150 leads qualifiés pour 3000€</strong>.
+                La méthode complète qui m'a permis de scaler ma startup de 0 à 15M€ en 3 ans.
+            </p>
+            <p class="hero-casestudy">
+                Découvre le case study Neoabita : <strong>12M€ de CA pour 3000€ investis</strong>.
             </p>
             <div class="hero-stats">
                 <div class="stat-item">
@@ -1091,7 +1213,7 @@
                     L'Étape 1 avec ClickFunnels est parfaite pour démarrer vite <strong>en toute autonomie</strong>. 
                     Pour le tracking Stape.io, tu trouves facilement des freelances sur Fiverr pour te le configurer.
                 </p>
-                <a href="/etape-2" class="callout-cta" style="margin-top: 20px;">
+                <a href="/etape-2.html" class="callout-cta" style="margin-top: 20px;">
                     Découvrir l'Étape 2 : Tunnels Custom Full IA →
                 </a>
                 <p style="margin-top: 24px; padding: 16px; background: rgba(255,77,0,0.1); border-radius: 8px; text-align: left;">
@@ -1132,6 +1254,14 @@
         </div>
     </footer>
 
+    <!-- Sticky Discord -->
+    <a href="https://discord.gg/scaling-max" target="_blank" class="sticky-discord">
+        💬 Une question ?
+    </a>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
     <script>
         // Animation on scroll
         const observer = new IntersectionObserver((entries) => {
@@ -1144,6 +1274,22 @@
 
         document.querySelectorAll('.timeline-item, .result-card, .key-card, .tool-card').forEach(el => {
             observer.observe(el);
+        });
+
+        // Back to top visibility
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll to top
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
