@@ -1678,6 +1678,10 @@
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="ton@email.com" required>
                         </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" required>
+                        </div>
                         <button type="submit"><span>Voir la méthode →</span><small>100% gratuit</small></button>
                     </form>
                     <p class="form-note">🔒 <strong>0 spam</strong> · Tu débloques la vidéo direct</p>
@@ -2025,12 +2029,12 @@
 
     <script>
         // Fonction pour envoyer à Brevo
-        async function subscribeToBrevo(email, firstName, source) {
+        async function subscribeToBrevo(email, firstName, phone, source) {
             try {
                 const response = await fetch('/api/subscribe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, firstName, source })
+                    body: JSON.stringify({ email, firstName, phone, source })
                 });
                 const data = await response.json();
                 console.log('Brevo response:', data);
@@ -2046,9 +2050,10 @@
             
             const firstname = document.getElementById('firstname').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
             
             // Envoyer à Brevo
-            await subscribeToBrevo(email, firstname, 'scalingmax-video');
+            await subscribeToBrevo(email, firstname, phone, 'scalingmax-video');
             
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
