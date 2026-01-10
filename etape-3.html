@@ -111,6 +111,13 @@
             border: 2px solid var(--gray-light);
         }
 
+        .header-cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+
         .header-cta {
             background: var(--black);
             color: var(--white);
@@ -125,6 +132,131 @@
         .header-cta:hover {
             background: var(--accent);
             transform: translateY(-1px);
+        }
+
+        .header-cta-price {
+            font-size: 0.75rem;
+            font-style: italic;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* Sticky Discord */
+        .sticky-discord {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--black);
+            color: var(--white);
+            padding: 14px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .sticky-discord:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255,77,0,0.4);
+        }
+
+        .sticky-discord svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: var(--black);
+            color: var(--white);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .sticky-discord {
+                bottom: 16px;
+                right: 16px;
+                padding: 12px 16px;
+                font-size: 0.8rem;
+            }
+            .back-to-top {
+                bottom: 16px;
+                left: 16px;
+                width: 42px;
+                height: 42px;
+            }
+        }
+
+        /* Notion Banner */
+        .notion-banner {
+            background: linear-gradient(135deg, #191919 0%, #2d2d2d 100%);
+            padding: 12px 0;
+            text-align: center;
+        }
+
+        .notion-banner a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .notion-banner a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+
+        .notion-banner svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        @media (max-width: 600px) {
+            .notion-banner a {
+                font-size: 0.85rem;
+                padding: 8px 14px;
+            }
         }
 
         /* Step Navigation */
@@ -977,6 +1109,13 @@
     </style>
 </head>
 <body>
+    <!-- Protection: Vérifie que l'utilisateur a débloqué l'accès via l'index -->
+    <script>
+        if (localStorage.getItem('videoUnlocked') !== 'true') {
+            window.location.href = '/';
+        }
+    </script>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -985,7 +1124,10 @@
                     <img src="photo-max.jpg" alt="Max" class="logo-avatar">
                     <span class="logo">Scaling<span class="separator">|</span><span class="max">MAX</span></span>
                 </a>
-                <a href="/" class="header-cta">← Retour</a>
+                <div class="header-cta-wrapper">
+                    <a href="https://app.iclosed.io/e/maximeaugiat/accompagnement-1-1" target="_blank" class="header-cta">🚀 Être coaché par Maxime</a>
+                    <span class="header-cta-price">à partir de 1 500€ / mois</span>
+                </div>
             </div>
         </div>
     </header>
@@ -993,20 +1135,31 @@
     <!-- Step Navigation -->
     <nav class="step-nav">
         <div class="step-nav-inner">
-            <a href="/etape-1">
+            <a href="/etape-1.html">
                 <span class="step-number">ÉTAPE 1</span>
                 <span>Bienvenue & Case Study</span>
             </a>
-            <a href="/etape-2">
+            <a href="/etape-2.html">
                 <span class="step-number">ÉTAPE 2</span>
                 <span>Tunnels Custom Full IA</span>
             </a>
-            <a href="/etape-3" class="active">
+            <a href="/etape-3.html" class="active">
                 <span class="step-number">ÉTAPE 3</span>
                 <span>Profile Funnel Instagram</span>
             </a>
         </div>
     </nav>
+
+    <!-- Notion Banner -->
+    <div class="notion-banner">
+        <a href="https://batchr.notion.site/TAPE-3-La-Strat-gie-Profile-Funnel-Convertir-via-Instagram-2e2472bfeba78165b1b0c7f5718df958" target="_blank">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553 -6.413 6.017 -6.8z"/>
+                <path fill="#191919" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z"/>
+            </svg>
+            📄 Accéder au Notion complet de l'Étape 3
+        </a>
+    </div>
 
     <!-- Hero -->
     <section class="hero">
@@ -1652,6 +1805,33 @@
         document.querySelectorAll('.content-card, .funnel-card, .case-card, .dm-flow-card').forEach(el => {
             observer.observe(el);
         });
+
+        // Back to top visibility
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll to top
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
+
+    <!-- Sticky Discord -->
+    <a href="https://discord.gg/kPBHbCqdWK" target="_blank" class="sticky-discord">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+        </svg>
+        Rejoins-nous sur Discord
+    </a>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
 </body>
 </html>
