@@ -898,7 +898,76 @@
             }
 
             .comparison-table {
-                overflow-x: auto;
+                overflow: visible;
+            }
+
+            .desktop-only {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+        }
+
+        /* Mobile comparison cards */
+        .comparison-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .compare-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .compare-card-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 16px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .compare-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 0.85rem;
+        }
+
+        .compare-row:last-child {
+            border-bottom: none;
+        }
+
+        .compare-row.highlight {
+            background: var(--purple-bg);
+        }
+
+        .compare-label {
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .compare-row.highlight .compare-label {
+            color: var(--accent);
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-only {
+                display: block;
+            }
+
+            .desktop-only {
+                display: none;
             }
         }
 
@@ -1022,7 +1091,7 @@
                 <p>Les templates sont génériques. Tes concurrents utilisent les mêmes.</p>
             </div>
 
-            <div class="comparison-table">
+            <div class="comparison-table desktop-only">
                 <table>
                     <thead>
                         <tr>
@@ -1059,6 +1128,65 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- Version mobile en cards -->
+            <div class="comparison-mobile mobile-only">
+                <div class="compare-card">
+                    <div class="compare-card-header">Design</div>
+                    <div class="compare-row">
+                        <span class="compare-label">ClickFunnels</span>
+                        <span>Templates prédéfinis</span>
+                    </div>
+                    <div class="compare-row highlight">
+                        <span class="compare-label">Custom IA ✨</span>
+                        <span>100% personnalisé</span>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <div class="compare-card-header">Coût mensuel</div>
+                    <div class="compare-row">
+                        <span class="compare-label">ClickFunnels</span>
+                        <span>97$/mois minimum</span>
+                    </div>
+                    <div class="compare-row highlight">
+                        <span class="compare-label">Custom IA ✨</span>
+                        <span>0€ (Vercel gratuit)</span>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <div class="compare-card-header">Performance</div>
+                    <div class="compare-row">
+                        <span class="compare-label">ClickFunnels</span>
+                        <span>Standard</span>
+                    </div>
+                    <div class="compare-row highlight">
+                        <span class="compare-label">Custom IA ✨</span>
+                        <span>Ultra-rapide (CDN)</span>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <div class="compare-card-header">Contrôle</div>
+                    <div class="compare-row">
+                        <span class="compare-label">ClickFunnels</span>
+                        <span>Limité aux options</span>
+                    </div>
+                    <div class="compare-row highlight">
+                        <span class="compare-label">Custom IA ✨</span>
+                        <span>Total (code source)</span>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <div class="compare-card-header">Différenciation</div>
+                    <div class="compare-row">
+                        <span class="compare-label">ClickFunnels</span>
+                        <span>Ressemble aux autres</span>
+                    </div>
+                    <div class="compare-row highlight">
+                        <span class="compare-label">Custom IA ✨</span>
+                        <span>Unique, mémorable</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
