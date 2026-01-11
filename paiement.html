@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rejoins Scaling MAX | 79€/mois</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .logo-text span {
+      color: #ff4d00;
+    }
+
+    .back-link {
+      color: #888;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
+    /* Main Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* Left Column - Content */
+    .content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .content h1 span {
+      color: #ff4d00;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: #999;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* Features */
+    .features {
+      margin-bottom: 40px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .feature:last-child {
+      border-bottom: none;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #ff4d00 0%, #ff6b2c 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .feature-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature-content p {
+      color: #888;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Guarantee */
+    .guarantee {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .guarantee-icon {
+      font-size: 2.5rem;
+    }
+
+    .guarantee-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .guarantee-content p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Right Column - Card with animated border */
+    .card-wrapper {
+      position: sticky;
+      top: 40px;
+      border-radius: 26px;
+      padding: 3px;
+      background: linear-gradient(135deg, #ff4d00, #ff6b2c, #ff8c42, #ff6b2c, #ff4d00);
+      background-size: 300% 300%;
+      animation: gradient-shift 4s ease infinite;
+      box-shadow: 0 0 40px rgba(255, 77, 0, 0.3);
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: #fafafa;
+      border-radius: 24px;
+      padding: 36px;
+      color: #0a0a0a;
+    }
+
+    .card-badge {
+      display: inline-block;
+      background: #ff4d00;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .price-amount {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    .price-period {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #ff4d00;
+    }
+
+    .form-group input::placeholder {
+      color: #aaa;
+    }
+
+    /* Stripe Elements container */
+    .stripe-element {
+      padding: 14px 16px;
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+
+    .stripe-element.StripeElement--focus {
+      border-color: #ff4d00;
+    }
+
+    .stripe-element.StripeElement--invalid {
+      border-color: #ef4444;
+    }
+
+    /* Card features */
+    .card-features {
+      margin: 24px 0;
+      padding: 20px 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    .card-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+    }
+
+    .card-feature svg {
+      width: 18px;
+      height: 18px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+
+    .card-feature span {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* CTA Button */
+    .cta-button {
+      width: 100%;
+      background: #0a0a0a;
+      color: white;
+      border: none;
+      padding: 18px 32px;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .cta-button:hover:not(:disabled) {
+      background: #ff4d00;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 77, 0, 0.3);
+    }
+
+    .cta-button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Error message */
+    .error-message {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    /* Secure badge */
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    .secure-badge svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Loading spinner */
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff40;
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 960px) {
+      .card-wrapper {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 16px;
+      }
+
+      .header {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .content h1 {
+        font-size: 1.9rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .feature {
+        padding: 16px 0;
+      }
+
+      .feature-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+
+      .feature-content h3 {
+        font-size: 1rem;
+      }
+
+      .feature-content p {
+        font-size: 0.9rem;
+      }
+
+      .guarantee {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .card {
+        padding: 28px 24px;
+      }
+
+      .price-amount {
+        font-size: 2.4rem;
+      }
+
+      .card-features {
+        padding: 16px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="/" class="logo">
+        <img src="/images/logo-scaling-max.png" alt="Scaling MAX" onerror="this.style.display='none'">
+        <div class="logo-text">Scaling<span>MAX</span></div>
+      </a>
+      <a href="/" class="back-link">← Retour au site</a>
+    </div>
+
+    <div class="grid">
+      <!-- Left Column -->
+      <div class="content">
+        <h1>Rejoins <span>Scaling MAX</span> et scale ton business</h1>
+        <p class="subtitle">
+          Accède à toutes mes méthodes, mon Notion complet, et une communauté privée d'entrepreneurs ambitieux. Tout ce qu'il te faut pour passer au niveau supérieur.
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">📚</div>
+            <div class="feature-content">
+              <h3>Le Notion Scaling MAX complet</h3>
+              <p>Toutes mes méthodes, templates, et process documentés. De l'acquisition à la vente, en passant par l'opérationnel.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">💬</div>
+            <div class="feature-content">
+              <h3>Le Discord privé</h3>
+              <p>Une communauté d'entrepreneurs qui s'entraident. Pose tes questions, partage tes wins, et connecte avec des gens qui pensent comme toi.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-content">
+              <h3>Mes méthodes éprouvées</h3>
+              <p>Les stratégies exactes qui m'ont permis de scaler Warmango de 0 à 15M€ en 3 ans et réussir ma vente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guarantee">
+          <div class="guarantee-icon">🛡️</div>
+          <div class="guarantee-content">
+            <h4>Sans engagement</h4>
+            <p>Annule à tout moment en un clic. Pas de frais cachés, pas de questions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Payment Card -->
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-badge">Accès immédiat</div>
+          <h2>Scaling MAX</h2>
+          <div class="price">
+            <span class="price-amount">79€</span>
+            <span class="price-period">/ mois</span>
+          </div>
+
+          <div class="card-features">
+              <div class="card-feature">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Accès au Notion complet</span>
+              </div>
+              <div class="card-feature">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Accès au Discord privé</span>
+              </div>
+              <div class="card-feature">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Toutes les méthodes & templates</span>
+              </div>
+              <div class="card-feature">
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Annulation en un clic</span>
+              </div>
+            </div>
+
+            <button type="button" class="cta-button" id="checkout-btn">
+              <span>S'abonner — 79€/mois</span>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+
+            <div id="error-message" class="error-message"></div>
+
+          <div class="secure-badge">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>Paiement sécurisé par Stripe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('checkout-btn');
+    const errorMessage = document.getElementById('error-message');
+    
+    btn.addEventListener('click', async () => {
+      // Disable button and show loading
+      btn.disabled = true;
+      btn.innerHTML = '<div class="spinner"></div><span>Redirection...</span>';
+      
+      try {
+        const response = await fetch('/api/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        
+        const data = await response.json();
+        
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error(data.error || 'Erreur lors de la création du paiement');
+        }
+      } catch (error) {
+        console.error('Checkout error:', error);
+        errorMessage.textContent = error.message || 'Une erreur est survenue. Réessaie.';
+        errorMessage.classList.add('show');
+        btn.disabled = false;
+        btn.innerHTML = '<span>S\'abonner — 79€/mois</span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>';
+        setTimeout(() => errorMessage.classList.remove('show'), 5000);
+      }
+    });
+  </script>
+</body>
+</html>
