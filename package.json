@@ -1,0 +1,11 @@
+{
+  "name": "landing-scaling-max",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
