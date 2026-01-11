@@ -55,34 +55,40 @@ async function sendWelcomeEmail(email, accessToken) {
           <h1 style="color: #0a0a0a; font-size: 28px; margin-bottom: 24px;">Bienvenue dans Scaling MAX ! 🚀</h1>
           
           <p style="color: #555; font-size: 16px; line-height: 1.7;">
-            Ton paiement a bien été reçu. Tu as maintenant accès à :
+            Ton paiement a bien été reçu. Tu as maintenant accès à tout le contenu Scaling MAX.
           </p>
           
-          <ul style="color: #555; font-size: 16px; line-height: 2;">
-            <li>📚 Le Notion Scaling MAX complet</li>
-            <li>💬 Le Discord privé</li>
-            <li>🎯 Toutes mes méthodes</li>
-          </ul>
-          
-          <h2 style="color: #0a0a0a; font-size: 20px; margin-top: 32px;">Étape 1 : Rejoins le Discord</h2>
+          <h2 style="color: #0a0a0a; font-size: 20px; margin-top: 32px;">📚 Étape 1 : Accède à la méthode</h2>
           
           <p style="color: #555; font-size: 16px; line-height: 1.7;">
-            Clique sur le bouton ci-dessous pour lier ton compte Discord et accéder au serveur privé :
+            Commence par découvrir le contenu pas à pas :
           </p>
           
-          <div style="text-align: center; margin: 32px 0;">
+          <div style="text-align: center; margin: 24px 0;">
+            <a href="https://www.maximeaugiat.com/etape-1.html" style="display: inline-block; background: #0a0a0a; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
+              Accéder à la méthode →
+            </a>
+          </div>
+          
+          <h2 style="color: #0a0a0a; font-size: 20px; margin-top: 32px;">💬 Étape 2 : Rejoins le Discord</h2>
+          
+          <p style="color: #555; font-size: 16px; line-height: 1.7;">
+            Connecte ton compte Discord pour rejoindre la communauté privée :
+          </p>
+          
+          <div style="text-align: center; margin: 24px 0;">
             <a href="${accessLink}" style="display: inline-block; background: #ff4d00; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
-              Accéder au Discord →
+              Rejoindre le Discord →
             </a>
           </div>
           
           <p style="color: #999; font-size: 14px; margin-top: 40px;">
-            Ce lien est unique et personnel. Ne le partage pas.<br>
+            Ces liens sont uniques et personnels. Ne les partage pas.<br>
             Si tu as la moindre question, réponds directement à cet email.
           </p>
           
           <p style="color: #0a0a0a; font-size: 16px; margin-top: 32px;">
-            À très vite sur le Discord !<br>
+            À très vite !<br>
             <strong>Max</strong>
           </p>
         </div>
