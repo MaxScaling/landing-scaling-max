@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue ! | Scaling MAX</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: #fafafa;
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .emoji {
+      font-size: 4rem;
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #10b981;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #0a0a0a;
+    }
+    p {
+      color: #555;
+      margin-bottom: 24px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+    .steps {
+      text-align: left;
+      margin: 32px 0;
+      padding: 24px;
+      background: #f5f5f5;
+      border-radius: 12px;
+    }
+    .steps h3 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: #0a0a0a;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .step:last-child {
+      border-bottom: none;
+    }
+    .step-number {
+      background: #ff4d00;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .step-content {
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .step-content strong {
+      color: #0a0a0a;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #0a0a0a;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      margin-top: 16px;
+    }
+    .btn:hover {
+      background: #ff4d00;
+      transform: translateY(-2px);
+    }
+    .note {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="emoji">🎉</div>
+    <div class="badge">✓ Paiement confirmé</div>
+    <h1>Bienvenue dans Scaling MAX !</h1>
+    <p>Ton paiement a bien été reçu. Tu vas recevoir un email dans les prochaines secondes.</p>
+    
+    <div class="steps">
+      <h3>Prochaines étapes :</h3>
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <strong>Vérifie ta boîte mail</strong><br>
+          Un email avec ton lien d'accès Discord t'a été envoyé.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <strong>Clique sur "Accéder au Discord"</strong><br>
+          Connecte ton compte Discord pour rejoindre le serveur privé.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <strong>Présente-toi</strong><br>
+          Dis bonjour dans #présentations et commence à explorer !
+        </div>
+      </div>
+    </div>
+    
+    <a href="https://www.maximeaugiat.com" class="btn">Retour au site →</a>
+    
+    <p class="note">Pas d'email ? Vérifie tes spams ou contacte contact@maximeaugiat.com</p>
+  </div>
+</body>
+</html>
